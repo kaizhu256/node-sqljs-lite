@@ -1,0 +1,36 @@
+addons:
+    chrome: stable
+before_install:
+    # init xvfb
+    # http://docs.travis-ci.com/user/gui-and-headless-browsers/
+    - export DISPLAY=:99.0 && sh -e /etc/init.d/xvfb start
+    # override $NODE_VERSION
+    - CI_COMMIT_MESSAGE="$(git log -1 --pretty=%s)" && if (printf "$CI_COMMIT_MESSAGE" | grep -qE "\bNODE_VERSION="); then nvm install "$(printf "$CI_COMMIT_MESSAGE" | sed -e "s/.*\bNODE_VERSION=//" -e "s/ .*//")" && node --version && npm --version; fi
+branches:
+    only:
+    - /^alpha$/
+    - /^beta$/
+    - /^benchmark\..*/
+    - /^cron$/
+    - /^docker\..*/
+    - /^master$/
+    - /^publish$/
+    - /^task$/
+cache:
+    npm: false
+env:
+    global:
+    # this value is auto-created by shTravisCryptoAesEncryptYml
+    - secure: T6zg72cbqzaqzoKimsdR7UO3iR45+QiS8AN59xSiGMerf/uQPNZitWInEjjrWx1Z+oKyJdQ+7DaDXmNImfdoRDvZ9JbARyFq8XY+QOQW0SDZHFS2ULLTRoS0vtz+5SjTGRsDwfjss0qIYRbVNsgUTSCzKFm0n+YJZv1/Xr7xN3H+BK/sODSJMQdK0oO+io/cAvw+RAUrDIw8x3VaUMebELPxbzQiQwxcJDCUDFPvub78CHTp/spDQGhiKC0fM+8Su/OSYT2EK2BZBsqR6FiOn4N4DaQYadRJr1Fv5lI+e2PEIaGjcPBpt6OLdN6/aCqTK3RD+i3+kGLBDQczCrML5/N7BXe6rR8QV5rkCXIT6jeERcKOkJVexTFly2EMfEL/DzVs2PxUeIYIed7kD7gGOSESKwjztidwA6W4yW0ehSABLiVGdkBpTZ9R9lvBMiQvaTcM8RRej5iGYGHLGu5iMLCRU8gfGeWn1qaU6LZnSIan8EsnGIY4MCjrVcjtXTLO7wFW5NJQH5e8eTBWHN7LH3tkrDz8QbJQV4aYJ8RCkyFmf1MH1GAghjn0K31xB+QCagVzcce9IoHvvFkjgTuZEj6vA6Lrz7ECHHToSk1NEmiZ3Ve/gm655//KLSdyHWBOHHAUAU+wIMM3j5I00ye3PHbbSNgnKP5vHwiSNV8iK0I= # CRYPTO_AES_KEY
+language:
+    - node_js
+node_js:
+    # - 8
+    - node
+script:
+    - npm run build-ci
+services:
+    - docker
+# http://docs.travis-ci.com/user/workers/container-based-infrastructure
+sudo:
+    false
