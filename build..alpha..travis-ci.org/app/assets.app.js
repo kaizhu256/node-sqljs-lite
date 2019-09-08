@@ -70065,7 +70065,7 @@ local.stateInit({
 /* jslint ignore:start */
 local.assetsDict["/assets.sqljs_lite.js"] = "// usr/bin/env node\n\
 /*\n\
- * lib.sqljs_lite.js (0.0.1)\n\
+ * lib.sqljs_lite.js (2019.9.8)\n\
  * https://github.com/kaizhu256/node-sqljs-lite\n\
  * the greatest app in the world!\n\
  *\n\
@@ -70296,7 +70296,7 @@ return;\n\
 
 // usr/bin/env node
 /*
- * lib.sqljs_lite.js (0.0.1)
+ * lib.sqljs_lite.js (2019.9.8)
  * https://github.com/kaizhu256/node-sqljs-lite
  * the greatest app in the world!
  *

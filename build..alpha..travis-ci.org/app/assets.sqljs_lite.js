@@ -1,6 +1,6 @@
 // usr/bin/env node
 /*
- * lib.sqljs_lite.js (0.0.1)
+ * lib.sqljs_lite.js (2019.9.8)
  * https://github.com/kaizhu256/node-sqljs-lite
  * the greatest app in the world!
  *
