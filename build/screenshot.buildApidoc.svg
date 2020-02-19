@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T19:56:22.383Z - npm-testing /home/travis/bu\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T20:01:05.008Z - npm-testing /home/travis/bu\</tspan>
 <tspan x="10" y="58">ild/kaizhu256/node-sqljs-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/buil\</tspan>
 <tspan x="10" y="122">d/test-report.json</tspan>
 
-<tspan x="10" y="138">&gt; http-server listening on port 54147</tspan>
+<tspan x="10" y="138">&gt; http-server listening on port 54362</tspan>
 
 <tspan x="10" y="154">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
 
@@ -23,44 +23,44 @@
 
 <tspan x="10" y="202">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
 
-<tspan x="10" y="218"></tspan>
+<tspan x="10" y="218">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/LICENSE</tspan>
 
-<tspan x="10" y="234">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/buil\</tspan>
-<tspan x="10" y="250">d/test-report.json</tspan>
+<tspan x="10" y="234">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="266">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/LICENSE</tspan>
+<tspan x="10" y="250">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
 
-<tspan x="10" y="282">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="266">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/package-lock.json</tspan>
 
-<tspan x="10" y="298">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
+<tspan x="10" y="282">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
 
-<tspan x="10" y="314">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/package-lock.json</tspan>
+<tspan x="10" y="298">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
 
-<tspan x="10" y="330">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
+<tspan x="10" y="314">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/.travis.yml</tspan>
 
-<tspan x="10" y="346">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
+<tspan x="10" y="330">apidocCreate - requiring /home/travis/build/kaizhu256/node-sqljs-lite ...</tspan>
 
-<tspan x="10" y="362">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/.travis.yml</tspan>
+<tspan x="10" y="346">apidocCreate - ... required /home/travis/build/kaizhu256/node-sqljs-lite</tspan>
 
-<tspan x="10" y="378">apidocCreate - requiring /home/travis/build/kaizhu256/node-sqljs-lite ...</tspan>
+<tspan x="10" y="362"></tspan>
 
-<tspan x="10" y="394">apidocCreate - ... required /home/travis/build/kaizhu256/node-sqljs-lite</tspan>
+<tspan x="10" y="378">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/buil\</tspan>
+<tspan x="10" y="394">d/test-report.json</tspan>
 
-<tspan x="10" y="410">jslint - 229ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
+<tspan x="10" y="410">jslint - 247ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
 
-<tspan x="10" y="426">jslint - 139ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
+<tspan x="10" y="426">created apidoc file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/apidoc.html</tspan>
 
-<tspan x="10" y="442">created apidoc file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/apidoc.html</tspan>
+<tspan x="10" y="442"></tspan>
 
-<tspan x="10" y="458"></tspan>
+<tspan x="10" y="458">testRunDefault - 503 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="474">testRunDefault - 535 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="474">jslint - 156ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
 
-<tspan x="10" y="490">jslint - 0ms /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="490">jslint - 1ms /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="506">jslint - 6ms /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
+<tspan x="10" y="506">jslint - 7ms /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
 
-<tspan x="10" y="522">jslint - 22ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
+<tspan x="10" y="522">jslint - 62ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
 
 <tspan x="10" y="538"></tspan>
 
@@ -71,22 +71,22 @@
 
 <tspan x="10" y="602">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="618">| test-report - buildApidoc - node - linux v13.9.0 - 2020-02-19T19:56:22.493Z</tspan>
+<tspan x="10" y="618">| test-report - buildApidoc - node - linux v13.9.0 - 2020-02-19T20:01:05.128Z</tspan>
 
-<tspan x="10" y="634">|     536 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="634">|     506 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="650">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="666">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="682">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T19:56:16.004Z</tspan>
+<tspan x="10" y="682">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T20:00:58.511Z</tspan>
 
-<tspan x="10" y="698">|      17 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="698">|      20 ms            0 failed        2 passed      |</tspan>
 
 <tspan x="10" y="714">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="730">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T19:56:13.779Z</tspan>
+<tspan x="10" y="730">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T20:00:56.244Z</tspan>
 
-<tspan x="10" y="746">|    5920 ms            0 failed        7 passed      |</tspan>
+<tspan x="10" y="746">|    5952 ms            0 failed        7 passed      |</tspan>
 
 <tspan x="10" y="762">-------------------------------------------------------</tspan>
 
@@ -104,7 +104,7 @@
 
 <tspan x="10" y="874"></tspan>
 
-<tspan x="10" y="890">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T19:56:23.317Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="890">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T20:01:06.025Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
