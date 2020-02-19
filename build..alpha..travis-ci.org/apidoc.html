@@ -1,0 +1,386 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    overflow-wrap: break-word;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/kaizhu256/node-sqljs-lite"
+
+    >sqljs-lite (2019.9.8)</a>
+</h1>
+<h4>the greatest app in the world!</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.sqljs-lite">module sqljs-lite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.assertOrThrow">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>assertOrThrow
+            <span class="apidocSignatureSpan">(passed, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.fsRmrfSync">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>fsRmrfSync
+            <span class="apidocSignatureSpan">(dir)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.fsWriteFileWithMkdirpSync">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>fsWriteFileWithMkdirpSync
+            <span class="apidocSignatureSpan">(file, data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.functionOrNop">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>functionOrNop
+            <span class="apidocSignatureSpan">(fnc)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.identity">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>identity
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.nop">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>nop
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.objectAssignDefault">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>objectAssignDefault
+            <span class="apidocSignatureSpan">(target, source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">number <span class="apidocSignatureSpan">sqljs-lite.</span>timeExit</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sqljs-lite.</span>local</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">sqljs-lite.</span>sqljs_lite</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">sqljs-lite.</span>__dirname</span>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sqljs-lite" id="apidoc.module.sqljs-lite">module sqljs-lite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.assertOrThrow" id="apidoc.elem.sqljs-lite.assertOrThrow">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>assertOrThrow
+        <span class="apidocSignatureSpan">(passed, message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">assertOrThrow = function (passed, message) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will throw err.&lt;message&gt; if &lt;passed&gt; is falsy
+ */
+</span>    var err;
+    if (passed) {
+        return;
+    }
+    err = (
+        (
+            message
+            &amp;&amp; typeof message.message === &quot;string&quot;
+            &amp;&amp; typeof message.stack === &quot;string&quot;
+        )
+        // if message is errObj, then leave as is
+        ? message
+        : new Error(
+            typeof message === &quot;string&quot;
+            // if message is a string, then leave as is
+            ? message
+            // else JSON.stringify message
+            : JSON.stringify(message, null, 4)
+        )
+    );
+    throw err;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.fsRmrfSync" id="apidoc.elem.sqljs-lite.fsRmrfSync">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>fsRmrfSync
+        <span class="apidocSignatureSpan">(dir)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fsRmrfSync = function (dir) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will sync &quot;rm -rf&quot; &lt;dir&gt;
+ */
+</span>    var child_process;
+    try {
+        child_process = require(&quot;child_process&quot;);
+    } catch (ignore) {
+        return;
+    }
+    child_process.spawnSync(&quot;rm&quot;, [
+        &quot;-rf&quot;, dir
+    ], {
+        stdio: [
+            &quot;ignore&quot;, 1, 2
+        ]
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.fsWriteFileWithMkdirpSync" id="apidoc.elem.sqljs-lite.fsWriteFileWithMkdirpSync">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>fsWriteFileWithMkdirpSync
+        <span class="apidocSignatureSpan">(file, data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">fsWriteFileWithMkdirpSync = function (file, data) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will sync write &lt;data&gt; to &lt;file&gt; with &quot;mkdir -p&quot;
+ */
+</span>    var fs;
+    try {
+        fs = require(&quot;fs&quot;);
+    } catch (ignore) {
+        return;
+    }
+    // try to write file
+    try {
+        fs.writeFileSync(file, data);
+    } catch (ignore) {
+        // mkdir -p
+        require(&quot;child_process&quot;).spawnSync(
+            &quot;mkdir&quot;,
+            [
+                &quot;-p&quot;, require(&quot;path&quot;).dirname(file)
+            ],
+            {
+                stdio: [
+                    &quot;ignore&quot;, 1, 2
+                ]
+            }
+        );
+        // rewrite file
+        fs.writeFileSync(file, data);
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.functionOrNop" id="apidoc.elem.sqljs-lite.functionOrNop">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>functionOrNop
+        <span class="apidocSignatureSpan">(fnc)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">functionOrNop = function (fnc) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will if &lt;fnc&gt; exists,
+ * them return &lt;fnc&gt;,
+ * else return &lt;nop&gt;
+ */
+</span>    return fnc || local.nop;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.identity" id="apidoc.elem.sqljs-lite.identity">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>identity
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">identity = function (value) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will return &lt;value&gt;
+ */
+</span>    return value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.nop" id="apidoc.elem.sqljs-lite.nop">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>nop
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">nop = function () {
+<span class="apidocCodeCommentSpan">/*
+ * this function will do nothing
+ */
+</span>    return;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.objectAssignDefault" id="apidoc.elem.sqljs-lite.objectAssignDefault">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>objectAssignDefault
+        <span class="apidocSignatureSpan">(target, source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">objectAssignDefault = function (target, source) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will if items from &lt;target&gt; are
+ * null, undefined, or empty-string,
+ * then overwrite them with items from &lt;source&gt;
+ */
+</span>    target = target || {};
+    Object.keys(source || {}).forEach(function (key) {
+        if (
+            target[key] === null
+            || target[key] === undefined
+            || target[key] === &quot;&quot;
+        ) {
+            target[key] = target[key] || source[key];
+        }
+    });
+    return target;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+       }).join(&quot; &quot;).replace((
+           /\u001b\[\d*m/g
+       ), &quot;&quot;) + &quot;\n&quot;;
+       // scroll textarea to bottom
+       elem.scrollTop = elem.scrollHeight;
+   };
+});
+local.<span class="apidocCodeKeywordSpan">objectAssignDefault</span>(local, globalThis.domOnEventDelegateDict);
+globalThis.domOnEventDelegateDict = local;
+local.onEventDomDb = local.db &amp;&amp; local.db.onEventDomDb;
+local.testRunBrowser = function (evt) {
+/*
+* this function will run browser-tests
+*/
+   switch (
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
