@@ -1,5 +1,5 @@
 # sqljs-lite
-the greatest app in the world!
+this zero-dependency package will import/export 100mb spreadsheets to/from wasm-sqlite inside browser
 
 # live web demo
 - [https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/app](https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/app)
@@ -36,28 +36,34 @@ the greatest app in the world!
 
 # cdn download
 - [https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/app/assets.sqljs_lite.js](https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/app/assets.sqljs_lite.js)
+- [https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/app/assets.sqljs_lite.wasm](https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/app/assets.sqljs_lite.wasm)
 
 
 
 # documentation
-#### cli help
-![screenshot](https://kaizhu256.github.io/node-sqljs-lite/build/screenshot.npmPackageCliHelp.svg)
-
 #### api doc
 - [https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/apidoc.html](https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/apidoc.html)
 
 [![apidoc](https://kaizhu256.github.io/node-sqljs-lite/build/screenshot.buildCi.browser.%252Ftmp%252Fbuild%252Fapidoc.html.png)](https://kaizhu256.github.io/node-sqljs-lite/build..beta..travis-ci.org/apidoc.html)
 
-#### todo
+#### cli help
+![screenshot](https://kaizhu256.github.io/node-sqljs-lite/build/screenshot.npmPackageCliHelp.svg)
+
+#### changelog 2020.2.12
+- npm publish 2020.2.12
+- add function sqljsExec, sqljsTableExport, sqljsTableImport
+- add file assets.sqljs_lite.wasm
 - none
 
-#### changelog 2019.9.8
-- npm publish 2019.9.8
-- update build
+#### todo
+- add feature to attach multiple databases
 - none
 
 #### this package requires
 - darwin or linux os
+
+#### additional info
+- sqljs code derived from https://github.com/kripken/sql.js
 
 
 
@@ -107,32 +113,37 @@ instruction
 
 
 
-/* istanbul instrument in package sqljs_lite */
+// assets.utility2.header.js - start
 /* istanbul ignore next */
 /* jslint utility2:true */
 (function (globalThis) {
     "use strict";
-    var consoleError;
-    var local;
+    let consoleError;
+    let debugName;
+    let local;
+    debugName = "debug" + String("Inline");
     // init globalThis
     globalThis.globalThis = globalThis.globalThis || globalThis;
     // init debug_inline
-    if (!globalThis["debug\u0049nline"]) {
+    if (!globalThis[debugName]) {
         consoleError = console.error;
-        globalThis["debug\u0049nline"] = function (...argList) {
+        globalThis[debugName] = function (...argList) {
         /*
          * this function will both print <argList> to stderr
          * and return <argList>[0]
          */
-            // debug argList
-            globalThis["debug\u0049nlineArgList"] = argList;
-            consoleError("\n\ndebug\u0049nline");
-            consoleError.apply(console, argList);
+            consoleError("\n\n" + debugName);
+            consoleError(...argList);
             consoleError("\n");
-            // return arg0 for inspection
             return argList[0];
         };
     }
+    String.prototype.trimEnd = (
+        String.prototype.trimEnd || String.prototype.trimRight
+    );
+    String.prototype.trimStart = (
+        String.prototype.trimStart || String.prototype.trimLeft
+    );
     // init local
     local = {};
     local.local = local;
@@ -143,12 +154,16 @@ instruction
         && globalThis.navigator
         && typeof globalThis.navigator.userAgent === "string"
     );
+    // init isWebWorker
+    local.isWebWorker = (
+        local.isBrowser && typeof globalThis.importScripts === "function"
+    );
     // init function
     local.assertOrThrow = function (passed, message) {
     /*
      * this function will throw err.<message> if <passed> is falsy
      */
-        var err;
+        let err;
         if (passed) {
             return;
         }
@@ -165,16 +180,32 @@ instruction
                 // if message is a string, then leave as is
                 ? message
                 // else JSON.stringify message
-                : JSON.stringify(message, null, 4)
+                : JSON.stringify(message, undefined, 4)
             )
         );
         throw err;
+    };
+    local.coalesce = function (...argList) {
+    /*
+     * this function will coalesce null, undefined, or "" in <argList>
+     */
+        let arg;
+        let ii;
+        ii = 0;
+        while (ii < argList.length) {
+            arg = argList[ii];
+            if (arg !== null && arg !== undefined && arg !== "") {
+                break;
+            }
+            ii += 1;
+        }
+        return arg;
     };
     local.fsRmrfSync = function (dir) {
     /*
      * this function will sync "rm -rf" <dir>
      */
-        var child_process;
+        let child_process;
         try {
             child_process = require("child_process");
         } catch (ignore) {
@@ -192,7 +223,7 @@ instruction
     /*
      * this function will sync write <data> to <file> with "mkdir -p"
      */
-        var fs;
+        let fs;
         try {
             fs = require("fs");
         } catch (ignore) {
@@ -221,16 +252,16 @@ instruction
     local.functionOrNop = function (fnc) {
     /*
      * this function will if <fnc> exists,
-     * them return <fnc>,
+     * return <fnc>,
      * else return <nop>
      */
         return fnc || local.nop;
     };
-    local.identity = function (value) {
+    local.identity = function (val) {
     /*
-     * this function will return <value>
+     * this function will return <val>
      */
-        return value;
+        return val;
     };
     local.nop = function () {
     /*
@@ -240,8 +271,7 @@ instruction
     };
     local.objectAssignDefault = function (target, source) {
     /*
-     * this function will if items from <target> are
-     * null, undefined, or empty-string,
+     * this function will if items from <target> are null, undefined, or "",
      * then overwrite them with items from <source>
      */
         target = target || {};
@@ -255,6 +285,26 @@ instruction
             }
         });
         return target;
+    };
+    local.querySelector = function (selectors) {
+    /*
+     * this function will return first dom-elem that match <selectors>
+     */
+        return (
+            typeof document === "object" && document
+            && typeof document.querySelector === "function"
+            && document.querySelector(selectors)
+        ) || {};
+    };
+    local.querySelectorAll = function (selectors) {
+    /*
+     * this function will return dom-elem-list that match <selectors>
+     */
+        return (
+            typeof document === "object" && document
+            && typeof document.querySelectorAll === "function"
+            && Array.from(document.querySelectorAll(selectors))
+        ) || [];
     };
     // require builtin
     if (!local.isBrowser) {
@@ -286,12 +336,12 @@ instruction
         local.vm = require("vm");
         local.zlib = require("zlib");
     }
-}((typeof globalThis === "object" && globalThis) || (function () {
-    return Function("return this")(); // jslint ignore:line
-}())));
+}((typeof globalThis === "object" && globalThis) || window));
+// assets.utility2.header.js - end
 
 
 
+/* jslint utility2:true */
 (function (local) {
 "use strict";
 
@@ -311,7 +361,6 @@ globalThis.local = local;
 
 
 
-/* istanbul ignore next */
 // run browser js-env code - init-test
 (function () {
 if (!local.isBrowser) {
@@ -319,11 +368,9 @@ if (!local.isBrowser) {
 }
 // log stderr and stdout to #outputStdout1
 ["error", "log"].forEach(function (key) {
-    var elem;
-    var fnc;
-    elem = document.querySelector(
-        "#outputStdout1"
-    );
+    let elem;
+    let fnc;
+    elem = local.querySelector("#outputStdout1");
     if (!elem) {
         return;
     }
@@ -335,7 +382,7 @@ if (!local.isBrowser) {
             return (
                 typeof arg === "string"
                 ? arg
-                : JSON.stringify(arg, null, 4)
+                : JSON.stringify(arg, undefined, 4)
             );
         }).join(" ").replace((
             /\u001b\[\d*m/g
@@ -346,65 +393,10 @@ if (!local.isBrowser) {
 });
 local.objectAssignDefault(local, globalThis.domOnEventDelegateDict);
 globalThis.domOnEventDelegateDict = local;
-local.onEventDomDb = local.db && local.db.onEventDomDb;
-local.testRunBrowser = function (evt) {
-/*
- * this function will run browser-tests
- */
-    switch (
-        !evt.ctrlKey
-        && !evt.metaKey
-        && (
-            evt.modeInit
-            || (evt.type + "." + (evt.target && evt.target.id))
-        )
-    ) {
-    // custom-case
-    case true:
-        return;
-    // run browser-tests
-    default:
-        if (
-            (evt.target && evt.target.id) !== "buttonTestRun1"
-            && !(evt.modeInit && (
-                /\bmodeTest=1\b/
-            ).test(location.search))
-        ) {
-            return;
-        }
-        // show browser-tests
-        if (document.querySelector(
-            "#htmlTestReport1"
-        ).style.maxHeight === "0px") {
-            globalThis.domOnEventDelegateDict.domOnEventResetOutput();
-            local.uiAnimateSlideDown(document.querySelector(
-                "#htmlTestReport1"
-            ));
-            document.querySelector(
-                "#buttonTestRun1"
-            ).textContent = "hide internal test";
-            local.modeTest = 1;
-            local.testRunDefault(local);
-            return;
-        }
-        // hide browser-tests
-        local.uiAnimateSlideUp(document.querySelector(
-            "#htmlTestReport1"
-        ));
-        document.querySelector(
-            "#buttonTestRun1"
-        ).textContent = "run internal test";
-    }
-};
-
-local.testRunBrowser({
-    modeInit: true
-});
 }());
 
 
 
-/* istanbul ignore next */
 // run node js-env code - init-test
 (function () {
 if (local.isBrowser) {
@@ -412,11 +404,9 @@ if (local.isBrowser) {
 }
 // init exports
 module.exports = local;
-/* validateLineSortedReset */
-// init assets
+// init assetsDict
 local.assetsDict = local.assetsDict || {};
 [
-    "assets.index.template.html",
     "assets.swgg.swagger.json",
     "assets.swgg.swagger.server.json"
 ].forEach(function (file) {
@@ -448,20 +438,11 @@ local.assetsDict["/assets.index.template.html"] = '\
 *:before {\n\
     box-sizing: border-box;\n\
 }\n\
+.uiAnimateSlide {\n\
+    overflow-y: hidden;\n\
+    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n\
+}\n\
 /* csslint ignore:end */\n\
-@keyframes uiAnimateShake {\n\
-0%,\n\
-50% {\n\
-    transform: translateX(10px);\n\
-}\n\
-100% {\n\
-    transform: translateX(0);\n\
-}\n\
-25%,\n\
-75% {\n\
-    transform: translateX(-10px);\n\
-}\n\
-}\n\
 @keyframes uiAnimateSpin {\n\
 0% {\n\
     transform: rotate(0deg);\n\
@@ -480,11 +461,6 @@ body {\n\
     margin: 0 40px;\n\
 }\n\
 body > div,\n\
-body > form > div,\n\
-body > form > input,\n\
-body > form > pre,\n\
-body > form > .button,\n\
-body > form > .textarea,\n\
 body > input,\n\
 body > pre,\n\
 body > .button,\n\
@@ -492,19 +468,17 @@ body > .textarea {\n\
     margin-bottom: 20px;\n\
     margin-top: 0;\n\
 }\n\
-body > form > input,\n\
-body > form > .button,\n\
 body > input,\n\
 body > .button {\n\
     width: 20rem;\n\
 }\n\
-body > form > .textarea,\n\
-body > .textarea {\n\
-    height: 10rem;\n\
-    width: 100%;\n\
-}\n\
 body > .readonly {\n\
     background: #ddd;\n\
+}\n\
+body > .textarea {\n\
+    height: 10rem;\n\
+    resize: vertical;\n\
+    width: 100%;\n\
 }\n\
 code,\n\
 pre,\n\
@@ -540,14 +514,6 @@ pre {\n\
     overflow: auto;\n\
     padding: 2px;\n\
 }\n\
-.uiAnimateShake {\n\
-    animation-duration: 500ms;\n\
-    animation-name: uiAnimateShake;\n\
-}\n\
-.uiAnimateSlide {\n\
-    overflow-y: hidden;\n\
-    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;\n\
-}\n\
 .zeroPixel {\n\
     border: 0;\n\
     height: 0;\n\
@@ -559,8 +525,6 @@ pre {\n\
 </head>\n\
 <body>\n\
 <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;"></div>\n\
-<a class="zeroPixel" download="db.persistence.json" href="" id="dbExportA1"></a>\n\
-<input class="zeroPixel" data-onevent="onEventDomDb" data-onevent-db="dbImportInput" type="file">\n\
 <script>\n\
 /* jslint utility2:true */\n\
 // init domOnEventWindowOnloadTimeElapsed\n\
@@ -569,7 +533,10 @@ pre {\n\
  * this function will measure and print time-elapsed for window.onload\n\
  */\n\
     "use strict";\n\
-    if (window.domOnEventWindowOnloadTimeElapsed) {\n\
+    if (!(\n\
+        typeof window === "object" && window && window.document\n\
+        && typeof document.addEventListener === "function"\n\
+    ) || window.domOnEventWindowOnloadTimeElapsed) {\n\
         return;\n\
     }\n\
     window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;\n\
@@ -595,8 +562,11 @@ pre {\n\
  * this function will display incrementing ajax-progress-bar\n\
  */\n\
     "use strict";\n\
-    var opt;\n\
-    if (window.domOnEventAjaxProgressUpdate) {\n\
+    let opt;\n\
+    if (!(\n\
+        typeof window === "object" && window && window.document\n\
+        && typeof document.addEventListener === "function"\n\
+    ) || window.domOnEventAjaxProgressUpdate) {\n\
         return;\n\
     }\n\
     window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {\n\
@@ -629,13 +599,13 @@ pre {\n\
                 opt.width = 0;\n\
             }\n\
             // this algorithm will indefinitely increment ajaxProgress\n\
-            // with successively smaller increments without ever reaching 100%\n\
+            // with successively smaller increments without reaching 100%\n\
             opt.width += 1;\n\
             opt.style.width = Math.max(\n\
                 100 - 75 * Math.exp(-0.125 * opt.width),\n\
                 opt.style.width.slice(0, -1) | 0\n\
             ) + "%";\n\
-            if (!opt.counter) {\n\
+            if (!opt.cnt) {\n\
                 setTimeout(opt, 0, gotoState, onError);\n\
             }\n\
             break;\n\
@@ -662,14 +632,14 @@ pre {\n\
         // ajaxProgress - reset\n\
         default:\n\
             // reset ajaxProgress\n\
-            opt.counter = 0;\n\
+            opt.cnt = 0;\n\
             opt.width = 0;\n\
             opt.style.width = "0%";\n\
         }\n\
     };\n\
     opt = window.domOnEventAjaxProgressUpdate;\n\
     opt.end = function (onError) {\n\
-        opt.counter = 0;\n\
+        opt.cnt = 0;\n\
         window.domOnEventAjaxProgressUpdate(2, onError);\n\
     };\n\
     opt.elem = document.getElementById("domElementAjaxProgress1");\n\
@@ -698,7 +668,7 @@ pre {\n\
     });\n\
     // init state\n\
     opt.background = opt.style.background;\n\
-    opt.counter = 0;\n\
+    opt.cnt = 0;\n\
     opt.width = 0;\n\
 }());\n\
 \n\
@@ -707,49 +677,54 @@ pre {\n\
 // init domOnEventDelegateDict\n\
 (function () {\n\
 /*\n\
- * this function will handle delegated dom-event\n\
+ * this function will handle delegated dom-evt\n\
  */\n\
     "use strict";\n\
-    var timerTimeoutDict;\n\
-    if (window.domOnEventDelegateDict) {\n\
+    let debounce;\n\
+    let timerTimeout;\n\
+    debounce = function () {\n\
+        return setTimeout(function () {\n\
+            timerTimeout = undefined;\n\
+        }, 30);\n\
+    };\n\
+    if (!(\n\
+        typeof window === "object" && window && window.document\n\
+        && typeof document.addEventListener === "function"\n\
+    ) || window.domOnEventDelegateDict) {\n\
         return;\n\
     }\n\
     window.domOnEventDelegateDict = {};\n\
-    timerTimeoutDict = {};\n\
     window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {\n\
-        evt.targetOnEvent = evt.target.closest(\n\
-            "[data-onevent]"\n\
-        );\n\
+        evt.targetOnEvent = evt.target.closest("[data-onevent]");\n\
         if (\n\
             !evt.targetOnEvent\n\
             || evt.targetOnEvent.dataset.onevent === "domOnEventNop"\n\
-            || evt.target.closest(\n\
-                ".disabled, .readonly"\n\
-            )\n\
+            || evt.target.closest(".disabled,.readonly")\n\
         ) {\n\
             return;\n\
         }\n\
-        // rate-limit high-frequency-event\n\
+        // filter evt-change\n\
+        switch (evt.type !== "change" && evt.target.type) {\n\
+        case "checkbox":\n\
+        case "file":\n\
+        case "select-one":\n\
+        case "radio":\n\
+            return;\n\
+        }\n\
+        // filter evt-keyup\n\
         switch (evt.type) {\n\
-        case "keydown":\n\
         case "keyup":\n\
-            // filter non-input keyboard-event\n\
-            if (!evt.target.closest(\n\
-                "input, option, select, textarea"\n\
+            if (!timerTimeout && (\n\
+                evt.target.tagName === "INPUT"\n\
+                || evt.target.tagName === "TEXTAREA"\n\
             )) {\n\
-                return;\n\
+                timerTimeout = debounce();\n\
+                if (evt.target.dataset.valueOld !== evt.target.value) {\n\
+                    evt.target.dataset.valueOld = evt.target.value;\n\
+                    break;\n\
+                }\n\
             }\n\
-            if (timerTimeoutDict[evt.type] !== true) {\n\
-                timerTimeoutDict[evt.type] = timerTimeoutDict[\n\
-                    evt.type\n\
-                ] || setTimeout(function () {\n\
-                    timerTimeoutDict[evt.type] = true;\n\
-                    window.domOnEventDelegateDict.domOnEventDelegate(evt);\n\
-                }, 50);\n\
-                return;\n\
-            }\n\
-            timerTimeoutDict[evt.type] = null;\n\
-            break;\n\
+            return;\n\
         }\n\
         switch (evt.targetOnEvent.tagName) {\n\
         case "BUTTON":\n\
@@ -758,32 +733,20 @@ pre {\n\
             break;\n\
         }\n\
         evt.stopPropagation();\n\
-        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](\n\
-            evt\n\
-        );\n\
+        // handle domOnEventClickTarget\n\
+        if (evt.targetOnEvent.dataset.onevent === "domOnEventClickTarget") {\n\
+            document.querySelector(\n\
+                evt.targetOnEvent.dataset.clickTarget\n\
+            ).click();\n\
+            return;\n\
+        }\n\
+        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);\n\
     };\n\
-    window.domOnEventDelegateDict.domOnEventResetOutput = function () {\n\
-        document.querySelectorAll(\n\
-            ".onevent-reset-output"\n\
-        ).forEach(function (elem) {\n\
-            switch (elem.tagName) {\n\
-            case "INPUT":\n\
-            case "TEXTAREA":\n\
-                elem.value = "";\n\
-                break;\n\
-            case "PRE":\n\
-                elem.textContent = "";\n\
-                break;\n\
-            default:\n\
-                elem.innerHTML = "";\n\
-            }\n\
-        });\n\
-    };\n\
-    // init event-handling\n\
+    // handle evt\n\
     [\n\
         "change",\n\
         "click",\n\
-        "keydown",\n\
+        "keyup",\n\
         "submit"\n\
     ].forEach(function (eventType) {\n\
         document.addEventListener(\n\
@@ -798,35 +761,32 @@ pre {\n\
 // init domOnEventSelectAllWithinPre\n\
 (function () {\n\
 /*\n\
- * this function will limit select-all within <pre tabIndex="0"> elements\n\
+ * this function will limit select-all within <pre tabIndex="0"> elem\n\
  * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse\n\
  */\n\
     "use strict";\n\
-    if (window.domOnEventSelectAllWithinPre) {\n\
+    if (!(\n\
+        typeof window === "object" && window && window.document\n\
+        && typeof document.addEventListener === "function"\n\
+    ) || window.domOnEventSelectAllWithinPre) {\n\
         return;\n\
     }\n\
     window.domOnEventSelectAllWithinPre = function (evt) {\n\
-        var range;\n\
-        var selection;\n\
+        let range;\n\
+        let selection;\n\
         if (\n\
-            evt\n\
-            && evt.key === "a"\n\
-            && (evt.ctrlKey || evt.metaKey)\n\
-            && evt.target.closest(\n\
-                "pre"\n\
-            )\n\
+            evt && (evt.ctrlKey || evt.metaKey) && evt.key === "a"\n\
+            && evt.target.closest("pre")\n\
         ) {\n\
             range = document.createRange();\n\
-            range.selectNodeContents(evt.target.closest(\n\
-                "pre"\n\
-            ));\n\
+            range.selectNodeContents(evt.target.closest("pre"));\n\
             selection = window.getSelection();\n\
             selection.removeAllRanges();\n\
             selection.addRange(range);\n\
             evt.preventDefault();\n\
         }\n\
     };\n\
-    // init event-handling\n\
+    // handle evt\n\
     document.addEventListener(\n\
         "keydown",\n\
         window.domOnEventSelectAllWithinPre\n\
@@ -850,7 +810,7 @@ utility2-comment -->\n\
 <h3>{{env.npm_package_description}}</h3>\n\
 <!-- utility2-comment\n\
 <a class="button" download href="assets.app.js">download standalone app</a><br>\n\
-<button class="button" data-onevent="testRunBrowser" id="buttonTestRun1">run internal test</button><br>\n\
+<button class="button" data-onevent="testRunBrowser" id="buttonTestRun1">run browser-tests</button><br>\n\
 <div class="uiAnimateSlide" id="htmlTestReport1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>\n\
 utility2-comment -->\n\
 \n\
@@ -858,7 +818,7 @@ utility2-comment -->\n\
 \n\
 <!-- custom-html-start -->\n\
 <label>stderr and stdout</label>\n\
-<pre class="onevent-reset-output readonly textarea" id="outputStdout1" tabIndex="0"></pre>\n\
+<textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>\n\
 <!-- custom-html-end -->\n\
 \n\
 \n\
@@ -867,36 +827,20 @@ utility2-comment -->\n\
 {{#if isRollup}}\n\
 <script src="assets.app.js"></script>\n\
 {{#unless isRollup}}\n\
-utility2-comment -->\n\
 <script src="assets.utility2.rollup.js"></script>\n\
-<script>window.utility2_onReadyBefore.counter += 1;</script>\n\
+<script>window.utility2_onReadyBefore.cnt += 1;</script>\n\
 <script src="jsonp.utility2.stateInit?callback=window.utility2.stateInit"></script>\n\
+utility2-comment -->\n\
 <script src="assets.sqljs_lite.js"></script>\n\
 <script src="assets.example.js"></script>\n\
 <script src="assets.test.js"></script>\n\
-<script>window.utility2_onReadyBefore();</script>\n\
-{{/if isRollup}}\n\
 <script>\n\
-/* jslint utility2:true */\n\
-(function () {\n\
-"use strict";\n\
-var htmlTestReport1;\n\
-var local;\n\
-htmlTestReport1 = document.querySelector("#htmlTestReport1");\n\
-if (!htmlTestReport1) {\n\
-    return;\n\
+if (window.utility2_onReadyBefore) {\n\
+    window.utility2_onReadyBefore();\n\
 }\n\
-local = window.utility2;\n\
-local.on("utility2.testRunProgressUpdate", function (testReport) {\n\
-    htmlTestReport1.innerHTML = local.testReportMerge(testReport, {});\n\
-});\n\
-local.on("utility2.testRunStart", function (testReport) {\n\
-    local.uiAnimateSlideDown(htmlTestReport1);\n\
-    htmlTestReport1.innerHTML = local.testReportMerge(testReport, {});\n\
-});\n\
-}());\n\
 </script>\n\
 <!-- utility2-comment\n\
+{{/if isRollup}}\n\
 utility2-comment -->\n\
 <div style="text-align: center;">\n\
     [\n\
@@ -910,13 +854,15 @@ utility2-comment -->\n\
 </html>\n\
 ';
 /* jslint ignore:end */
-/* validateLineSortedReset */
-/* jslint ignore:start */
-local.assetsDict["/assets.sqljs_lite.js"] =
-    local.assetsDict["/assets.sqljs_lite.js"] ||
-    local.fs.readFileSync(local.__dirname + "/lib.sqljs_lite.js", "utf8"
-).replace((/^#!\//), "// ");
-/* jslint ignore:end */
+local.assetsDict["/assets.sqljs_lite.js"] = (
+    local.assetsDict["/assets.sqljs_lite.js"]
+    || local.fs.readFileSync(
+        local.__dirname + "/lib.sqljs_lite.js",
+        "utf8"
+    ).replace((
+        /^#!\//
+    ), "// ")
+);
 /* validateLineSortedReset */
 local.assetsDict["/"] = local.assetsDict[
     "/assets.index.template.html"
@@ -937,17 +883,16 @@ local.assetsDict["/"] = local.assetsDict[
     }
 });
 local.assetsDict["/assets.example.html"] = local.assetsDict["/"];
-local.assetsDict["/index.html"] = local.assetsDict["/"];
 // init cli
 if (module !== require.main || globalThis.utility2_rollup) {
     return;
 }
-/* validateLineSortedReset */
 local.assetsDict["/assets.example.js"] = (
     local.assetsDict["/assets.example.js"]
     || local.fs.readFileSync(__filename, "utf8")
 );
 local.assetsDict["/favicon.ico"] = local.assetsDict["/favicon.ico"] || "";
+local.assetsDict["/index.html"] = local.assetsDict["/"];
 // if $npm_config_timeout_exit exists,
 // then exit this process after $npm_config_timeout_exit ms
 if (Number(process.env.npm_config_timeout_exit)) {
@@ -1016,19 +961,20 @@ local.http.createServer(function (req, res) {
 ```json
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "the greatest app in the world!",
+    "description": "this zero-dependency package will import/export 100mb spreadsheets to/from wasm-sqlite inside browser",
     "devDependencies": {
         "utility2": "kaizhu256/node-utility2#alpha"
     },
     "engines": {
         "node": ">=10.0"
     },
+    "fileCount": 9,
     "homepage": "https://github.com/kaizhu256/node-sqljs-lite",
     "keywords": [],
     "license": "MIT",
     "main": "lib.sqljs_lite.js",
     "name": "sqljs-lite",
-    "nameAliasPublish": "",
+    "nameAliasPublish": "wasm-sqlite",
     "nameLib": "sqljs_lite",
     "nameOriginal": "sqljs-lite",
     "os": [
@@ -1049,7 +995,7 @@ local.http.createServer(function (req, res) {
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2019.9.8"
+    "version": "2020.2.12"
 }
 ```
 

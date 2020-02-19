@@ -1,18 +1,19 @@
 {
     "author": "kai zhu <kaizhu256@gmail.com>",
-    "description": "the greatest app in the world!",
+    "description": "this zero-dependency package will import/export 100mb spreadsheets to/from wasm-sqlite inside browser",
     "devDependencies": {
         "utility2": "kaizhu256/node-utility2#alpha"
     },
     "engines": {
         "node": ">=10.0"
     },
+    "fileCount": 9,
     "homepage": "https://github.com/kaizhu256/node-sqljs-lite",
     "keywords": [],
     "license": "MIT",
     "main": "lib.sqljs_lite.js",
     "name": "sqljs-lite",
-    "nameAliasPublish": "",
+    "nameAliasPublish": "wasm-sqlite",
     "nameLib": "sqljs_lite",
     "nameOriginal": "sqljs-lite",
     "os": [
@@ -33,5 +34,5 @@
         "test": "./npm_scripts.sh",
         "utility2": "./npm_scripts.sh"
     },
-    "version": "2019.9.8"
+    "version": "2020.2.12"
 }
