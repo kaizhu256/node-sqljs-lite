@@ -1,0 +1,449 @@
+<svg height="3790" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="3790" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26"></tspan>
+
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-02-19T20:05:07.448Z - npm-testing /tmp/npmTe\</tspan>
+<tspan x="10" y="58">stPublished/node_modules/sqljs-lite</tspan>
+
+<tspan x="10" y="74"></tspan>
+
+<tspan x="10" y="90"></tspan>
+
+<tspan x="10" y="106">covering $ /home/travis/.nvm/versions/node/v13.9.0/bin/node /tmp/npmTestPublished/node_modules/s\</tspan>
+<tspan x="10" y="122">qljs-lite/test.js</tspan>
+
+<tspan x="10" y="138">&gt; jslint - 331ms /tmp/npmTestPublished/node_modules/sqljs-lite/README.md</tspan>
+
+<tspan x="10" y="154">jslint - 203ms /tmp/npmTestPublished/node_modules/sqljs-lite/lib.sqljs_lite.js</tspan>
+
+<tspan x="10" y="170">jslint - 1ms /tmp/npmTestPublished/node_modules/sqljs-lite/npm_scripts.sh</tspan>
+
+<tspan x="10" y="186">--- /tmp/npmTestPublished/node_modules/sqljs-lite/package.json.autofix.old	2020-02-19 20:05:08.4\</tspan>
+<tspan x="10" y="202">48266993 +0000</tspan>
+
+<tspan x="10" y="218">+++ /tmp/npmTestPublished/node_modules/sqljs-lite/package.json	2020-02-19 20:05:08.448266993 +00\</tspan>
+<tspan x="10" y="234">00</tspan>
+
+<tspan x="10" y="250">@@ -1,70 +1,70 @@</tspan>
+
+<tspan x="10" y="266"> {</tspan>
+
+<tspan x="10" y="282">-  "_from": "sqljs-lite",</tspan>
+
+<tspan x="10" y="298">-  "_id": "sqljs-lite@2020.2.12",</tspan>
+
+<tspan x="10" y="314">-  "_inBundle": false,</tspan>
+
+<tspan x="10" y="330">-  "_integrity": "sha512-kfhLPJfsLnyxxkACHDwFseANHTU1DibxHzy5XVfqcbHJCGyIr/W0vlI5PKOnWRfJfvGNIVb\</tspan>
+<tspan x="10" y="346">XU8ovRZL0NC/S6A==",</tspan>
+
+<tspan x="10" y="362">-  "_location": "/sqljs-lite",</tspan>
+
+<tspan x="10" y="378">-  "_phantomChildren": {},</tspan>
+
+<tspan x="10" y="394">-  "_requested": {</tspan>
+
+<tspan x="10" y="410">-    "type": "tag",</tspan>
+
+<tspan x="10" y="426">-    "registry": true,</tspan>
+
+<tspan x="10" y="442">-    "raw": "sqljs-lite",</tspan>
+
+<tspan x="10" y="458">+    "_from": "sqljs-lite",</tspan>
+
+<tspan x="10" y="474">+    "_id": "sqljs-lite@2020.2.12",</tspan>
+
+<tspan x="10" y="490">+    "_inBundle": false,</tspan>
+
+<tspan x="10" y="506">+    "_integrity": "sha512-kfhLPJfsLnyxxkACHDwFseANHTU1DibxHzy5XVfqcbHJCGyIr/W0vlI5PKOnWRfJfvGNI\</tspan>
+<tspan x="10" y="522">VbXU8ovRZL0NC/S6A==",</tspan>
+
+<tspan x="10" y="538">+    "_location": "/sqljs-lite",</tspan>
+
+<tspan x="10" y="554">+    "_phantomChildren": {},</tspan>
+
+<tspan x="10" y="570">+    "_requested": {</tspan>
+
+<tspan x="10" y="586">+        "escapedName": "sqljs-lite",</tspan>
+
+<tspan x="10" y="602">+        "fetchSpec": "latest",</tspan>
+
+<tspan x="10" y="618">+        "name": "sqljs-lite",</tspan>
+
+<tspan x="10" y="634">+        "raw": "sqljs-lite",</tspan>
+
+<tspan x="10" y="650">+        "rawSpec": "",</tspan>
+
+<tspan x="10" y="666">+        "registry": true,</tspan>
+
+<tspan x="10" y="682">+        "saveSpec": null,</tspan>
+
+<tspan x="10" y="698">+        "type": "tag"</tspan>
+
+<tspan x="10" y="714">+    },</tspan>
+
+<tspan x="10" y="730">+    "_requiredBy_": [</tspan>
+
+<tspan x="10" y="746">+        "#USER",</tspan>
+
+<tspan x="10" y="762">+        "/"</tspan>
+
+<tspan x="10" y="778">+    ],</tspan>
+
+<tspan x="10" y="794">+    "_resolved": "https://registry.npmjs.org/sqljs-lite/-/sqljs-lite-2020.2.12.tgz",</tspan>
+
+<tspan x="10" y="810">+    "_shasum": "7e12d1cfac96dcfcf96aee738fba0d15a2231346",</tspan>
+
+<tspan x="10" y="826">+    "_spec": "sqljs-lite",</tspan>
+
+<tspan x="10" y="842">+    "_where": "/tmp/npmTestPublished",</tspan>
+
+<tspan x="10" y="858">+    "author": {</tspan>
+
+<tspan x="10" y="874">+        "email": "kaizhu256@gmail.com",</tspan>
+
+<tspan x="10" y="890">+        "name": "kai zhu"</tspan>
+
+<tspan x="10" y="906">+    },</tspan>
+
+<tspan x="10" y="922">+    "bugs": {</tspan>
+
+<tspan x="10" y="938">+        "url": "https://github.com/kaizhu256/node-sqljs-lite/issues"</tspan>
+
+<tspan x="10" y="954">+    },</tspan>
+
+<tspan x="10" y="970">+    "bundleDependencies": false,</tspan>
+
+<tspan x="10" y="986">+    "deprecated": false,</tspan>
+
+<tspan x="10" y="1002">+    "description": "this zero-dependency package will import/export 100mb spreadsheets to/from \</tspan>
+<tspan x="10" y="1018">wasm-sqlite inside browser",</tspan>
+
+<tspan x="10" y="1034">+    "devDependencies": {</tspan>
+
+<tspan x="10" y="1050">+        "utility2": "github:kaizhu256/node-utility2#alpha"</tspan>
+
+<tspan x="10" y="1066">+    },</tspan>
+
+<tspan x="10" y="1082">+    "engines": {</tspan>
+
+<tspan x="10" y="1098">+        "node": "&gt;=10.0"</tspan>
+
+<tspan x="10" y="1114">+    },</tspan>
+
+<tspan x="10" y="1130">+    "fileCount": 9,</tspan>
+
+<tspan x="10" y="1146">+    "homepage": "https://github.com/kaizhu256/node-sqljs-lite",</tspan>
+
+<tspan x="10" y="1162">+    "keywords": [],</tspan>
+
+<tspan x="10" y="1178">+    "license": "MIT",</tspan>
+
+<tspan x="10" y="1194">+    "main": "lib.sqljs_lite.js",</tspan>
+
+<tspan x="10" y="1210">     "name": "sqljs-lite",</tspan>
+
+<tspan x="10" y="1226">-    "escapedName": "sqljs-lite",</tspan>
+
+<tspan x="10" y="1242">-    "rawSpec": "",</tspan>
+
+<tspan x="10" y="1258">-    "saveSpec": null,</tspan>
+
+<tspan x="10" y="1274">-    "fetchSpec": "latest"</tspan>
+
+<tspan x="10" y="1290">-  },</tspan>
+
+<tspan x="10" y="1306">-  "_requiredBy_": [</tspan>
+
+<tspan x="10" y="1322">-    "#USER",</tspan>
+
+<tspan x="10" y="1338">-    "/"</tspan>
+
+<tspan x="10" y="1354">-  ],</tspan>
+
+<tspan x="10" y="1370">-  "_resolved": "https://registry.npmjs.org/sqljs-lite/-/sqljs-lite-2020.2.12.tgz",</tspan>
+
+<tspan x="10" y="1386">-  "_shasum": "7e12d1cfac96dcfcf96aee738fba0d15a2231346",</tspan>
+
+<tspan x="10" y="1402">-  "_spec": "sqljs-lite",</tspan>
+
+<tspan x="10" y="1418">-  "_where": "/tmp/npmTestPublished",</tspan>
+
+<tspan x="10" y="1434">-  "author": {</tspan>
+
+<tspan x="10" y="1450">-    "name": "kai zhu",</tspan>
+
+<tspan x="10" y="1466">-    "email": "kaizhu256@gmail.com"</tspan>
+
+<tspan x="10" y="1482">-  },</tspan>
+
+<tspan x="10" y="1498">-  "bugs": {</tspan>
+
+<tspan x="10" y="1514">-    "url": "https://github.com/kaizhu256/node-sqljs-lite/issues"</tspan>
+
+<tspan x="10" y="1530">-  },</tspan>
+
+<tspan x="10" y="1546">-  "bundleDependencies": false,</tspan>
+
+<tspan x="10" y="1562">-  "deprecated": false,</tspan>
+
+<tspan x="10" y="1578">-  "description": "this zero-dependency package will import/export 100mb spreadsheets to/from wa\</tspan>
+<tspan x="10" y="1594">sm-sqlite inside browser",</tspan>
+
+<tspan x="10" y="1610">-  "devDependencies": {</tspan>
+
+<tspan x="10" y="1626">-    "utility2": "github:kaizhu256/node-utility2#alpha"</tspan>
+
+<tspan x="10" y="1642">-  },</tspan>
+
+<tspan x="10" y="1658">-  "engines": {</tspan>
+
+<tspan x="10" y="1674">-    "node": "&gt;=10.0"</tspan>
+
+<tspan x="10" y="1690">-  },</tspan>
+
+<tspan x="10" y="1706">-  "fileCount": 9,</tspan>
+
+<tspan x="10" y="1722">-  "homepage": "https://github.com/kaizhu256/node-sqljs-lite",</tspan>
+
+<tspan x="10" y="1738">-  "keywords": [],</tspan>
+
+<tspan x="10" y="1754">-  "license": "MIT",</tspan>
+
+<tspan x="10" y="1770">-  "main": "lib.sqljs_lite.js",</tspan>
+
+<tspan x="10" y="1786">-  "name": "sqljs-lite",</tspan>
+
+<tspan x="10" y="1802">-  "nameAliasPublish": "wasm-sqlite",</tspan>
+
+<tspan x="10" y="1818">-  "nameLib": "sqljs_lite",</tspan>
+
+<tspan x="10" y="1834">-  "nameOriginal": "sqljs-lite",</tspan>
+
+<tspan x="10" y="1850">-  "os": [</tspan>
+
+<tspan x="10" y="1866">-    "darwin",</tspan>
+
+<tspan x="10" y="1882">-    "linux"</tspan>
+
+<tspan x="10" y="1898">-  ],</tspan>
+
+<tspan x="10" y="1914">-  "repository": {</tspan>
+
+<tspan x="10" y="1930">-    "type": "git",</tspan>
+
+<tspan x="10" y="1946">-    "url": "git+https://github.com/kaizhu256/node-sqljs-lite.git"</tspan>
+
+<tspan x="10" y="1962">-  },</tspan>
+
+<tspan x="10" y="1978">-  "scripts": {</tspan>
+
+<tspan x="10" y="1994">-    "build-ci": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2010">-    "env": "env",</tspan>
+
+<tspan x="10" y="2026">-    "eval": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2042">-    "heroku-postbuild": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2058">-    "postinstall": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2074">-    "start": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2090">-    "test": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2106">-    "utility2": "./npm_scripts.sh"</tspan>
+
+<tspan x="10" y="2122">-  },</tspan>
+
+<tspan x="10" y="2138">-  "version": "2020.2.12"</tspan>
+
+<tspan x="10" y="2154">+    "nameAliasPublish": "wasm-sqlite",</tspan>
+
+<tspan x="10" y="2170">+    "nameLib": "sqljs_lite",</tspan>
+
+<tspan x="10" y="2186">+    "nameOriginal": "sqljs-lite",</tspan>
+
+<tspan x="10" y="2202">+    "os": [</tspan>
+
+<tspan x="10" y="2218">+        "darwin",</tspan>
+
+<tspan x="10" y="2234">+        "linux"</tspan>
+
+<tspan x="10" y="2250">+    ],</tspan>
+
+<tspan x="10" y="2266">+    "repository": {</tspan>
+
+<tspan x="10" y="2282">+        "type": "git",</tspan>
+
+<tspan x="10" y="2298">+        "url": "git+https://github.com/kaizhu256/node-sqljs-lite.git"</tspan>
+
+<tspan x="10" y="2314">+    },</tspan>
+
+<tspan x="10" y="2330">+    "scripts": {</tspan>
+
+<tspan x="10" y="2346">+        "build-ci": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2362">+        "env": "env",</tspan>
+
+<tspan x="10" y="2378">+        "eval": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2394">+        "heroku-postbuild": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2410">+        "postinstall": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2426">+        "start": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2442">+        "test": "./npm_scripts.sh",</tspan>
+
+<tspan x="10" y="2458">+        "utility2": "./npm_scripts.sh"</tspan>
+
+<tspan x="10" y="2474">+    },</tspan>
+
+<tspan x="10" y="2490">+    "version": "2020.2.12"</tspan>
+
+<tspan x="10" y="2506"> }</tspan>
+
+<tspan x="10" y="2522">jslint-autofix - modified and saved file /tmp/npmTestPublished/node_modules/sqljs-lite/package.j\</tspan>
+<tspan x="10" y="2538">son</tspan>
+
+<tspan x="10" y="2554">jslint - 25ms /tmp/npmTestPublished/node_modules/sqljs-lite/package.json</tspan>
+
+<tspan x="10" y="2570">jslint - 46ms /tmp/npmTestPublished/node_modules/sqljs-lite/test.js</tspan>
+
+<tspan x="10" y="2586">http-server listening on port 34595</tspan>
+
+<tspan x="10" y="2602">testRunDefault - 21 ms - [node test-case 1 of 7 passed] - testCase_buildApidoc_default</tspan>
+
+<tspan x="10" y="2618">testRunDefault - 46 ms - [node test-case 2 of 7 passed] - testCase_buildLib_default</tspan>
+
+<tspan x="10" y="2634">testRunDefault - 53 ms - [node test-case 3 of 7 passed] - testCase_buildReadme_default</tspan>
+
+<tspan x="10" y="2650">testRunDefault - 54 ms - [node test-case 4 of 7 passed] - testCase_buildTest_default</tspan>
+
+<tspan x="10" y="2666">testRunDefault - 54 ms - [node test-case 5 of 7 passed] - testCase_nop_default</tspan>
+
+<tspan x="10" y="2682"></tspan>
+
+<tspan x="10" y="2698">DevTools listening on ws://127.0.0.1:34367/devtools/browser/08cc6087-f5cc-437a-b696-1c66f3f15d8e</tspan>
+
+<tspan x="10" y="2714">[0219/200509.983024:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="2730">th unconsumed attachments: 0/1</tspan>
+
+<tspan x="10" y="2746">[0219/200509.983024:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
+<tspan x="10" y="2762">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+
+<tspan x="10" y="2778">[0219/200509.996743:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
+<tspan x="10" y="2794">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
+
+<tspan x="10" y="2810">[0219/200509.996692:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="2826">th unconsumed attachments: 0/1</tspan>
+
+<tspan x="10" y="2842">http-server listening on port 65369</tspan>
+
+<tspan x="10" y="2858">[0219/200511.052336:INFO:CONSOLE(383)] "testRunDefault - 4 ms - [browser test-case 1 of 2 passed\</tspan>
+<tspan x="10" y="2874">] - testCase_buildApp_default", source: http://127.0.0.1:34595/assets.example.js (383)</tspan>
+
+<tspan x="10" y="2890">[0219/200511.061831:INFO:CONSOLE(383)] "testRunDefault - 14 ms - [browser test-case 2 of 2 passe\</tspan>
+<tspan x="10" y="2906">d] - testCase_nop_default", source: http://127.0.0.1:34595/assets.example.js (383)</tspan>
+
+<tspan x="10" y="2922">[0219/200511.142661:INFO:CONSOLE(383)] "domOnEventWindowOnloadTimeElapsed = 982", source: http:/\</tspan>
+<tspan x="10" y="2938">/127.0.0.1:34595/assets.example.js (383)</tspan>
+
+<tspan x="10" y="2954">testRunDefault - 1981 ms - [node test-case 6 of 7 passed] - testCase_webpage_default</tspan>
+
+<tspan x="10" y="2970">Error: Protocol error (Runtime.enable): Target closed.</tspan>
+
+<tspan x="10" y="2986">    at /tmp/npmTestPublished/node_modules/sqljs-lite/node_modules/utility2/lib.puppeteer.js:4751\</tspan>
+<tspan x="10" y="3002">:56</tspan>
+
+<tspan x="10" y="3018">    at new Promise (&lt;anonymous&gt;)</tspan>
+
+<tspan x="10" y="3034">    at CDPSession.send (/tmp/npmTestPublished/node_modules/sqljs-lite/node_modules/utility2/lib.\</tspan>
+<tspan x="10" y="3050">puppeteer.js:4750:12)</tspan>
+
+<tspan x="10" y="3066">    at new Worker (/tmp/npmTestPublished/node_modules/sqljs-lite/node_modules/utility2/lib.puppe\</tspan>
+<tspan x="10" y="3082">teer.js:12632:18)</tspan>
+
+<tspan x="10" y="3098">    at CDPSession.&lt;anonymous&gt; (/tmp/npmTestPublished/node_modules/sqljs-lite/node_modules/utilit\</tspan>
+<tspan x="10" y="3114">y2/lib.puppeteer.js:10459:22)</tspan>
+
+<tspan x="10" y="3130">    at CDPSession.emit (events.js:321:20)</tspan>
+
+<tspan x="10" y="3146">    at CDPSession.EventEmitter.emit (domain.js:485:12)</tspan>
+
+<tspan x="10" y="3162">    at CDPSession._onMessage (/tmp/npmTestPublished/node_modules/sqljs-lite/node_modules/utility\</tspan>
+<tspan x="10" y="3178">2/lib.puppeteer.js:4768:12)</tspan>
+
+<tspan x="10" y="3194">    at Connection._onMessage (/tmp/npmTestPublished/node_modules/sqljs-lite/node_modules/utility\</tspan>
+<tspan x="10" y="3210">2/lib.puppeteer.js:4680:17)</tspan>
+
+<tspan x="10" y="3226">    at WebSocket.&lt;anonymous&gt; (/tmp/npmTestPublished/node_modules/sqljs-lite/node_modules/utility\</tspan>
+<tspan x="10" y="3242">2/lib.puppeteer.js:12561:24) {</tspan>
+
+<tspan x="10" y="3258">  message: 'Protocol error (Runtime.enable): Target closed.'</tspan>
+
+<tspan x="10" y="3274">}</tspan>
+
+<tspan x="10" y="3290">testRunDefault - 5829 ms - [node test-case 7 of 7 passed] - testCase_buildApp_default</tspan>
+
+<tspan x="10" y="3306">------------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3322">File                    |   % Stmts |% Branches |   % Funcs |   % Lines |</tspan>
+
+<tspan x="10" y="3338">------------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3354">   sqljs-lite/          |     96.32 |     96.54 |     97.49 |     95.95 |</tspan>
+
+<tspan x="10" y="3370">      lib.sqljs_lite.js |     96.23 |     96.45 |     97.44 |     95.85 |</tspan>
+
+<tspan x="10" y="3386">      test.js           |       100 |       100 |       100 |       100 |</tspan>
+
+<tspan x="10" y="3402">------------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3418">All files               |     96.32 |     96.54 |     97.49 |     95.95 |</tspan>
+
+<tspan x="10" y="3434">------------------------|-----------|-----------|-----------|-----------|</tspan>
+
+<tspan x="10" y="3450"></tspan>
+
+<tspan x="10" y="3466">created coverage file /tmp/npmTestPublished/node_modules/sqljs-lite/tmp/build/coverage.html/inde\</tspan>
+<tspan x="10" y="3482">x.html</tspan>
+
+<tspan x="10" y="3498"></tspan>
+
+<tspan x="10" y="3514">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="3530">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="3546">.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T20:05:10.329Z</tspan>
+
+<tspan x="10" y="3562">|      16 ms            0 failed        2 passed      |</tspan>
+
+<tspan x="10" y="3578">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="3594">| test-report - npmTestPublished - node - linux v13.9.0 - 2020-02-19T20:05:07.619Z</tspan>
+
+<tspan x="10" y="3610">|    5829 ms            0 failed        7 passed      |</tspan>
+
+<tspan x="10" y="3626">-------------------------------------------------------</tspan>
+
+<tspan x="10" y="3642"></tspan>
+
+<tspan x="10" y="3658">created test-report file /tmp/npmTestPublished/node_modules/sqljs-lite/tmp/build/test-report.htm\</tspan>
+<tspan x="10" y="3674">l</tspan>
+
+<tspan x="10" y="3690"></tspan>
+
+<tspan x="10" y="3706"></tspan>
+
+<tspan x="10" y="3722">npmTestPublished - 0 failed tests</tspan>
+
+<tspan x="10" y="3738"></tspan>
+
+<tspan x="10" y="3754"></tspan>
+
+<tspan x="10" y="3770">\x1b[35m[MODE_BUILD=npmTestPublished]\x1b[0m - 2020-02-19T20:05:15.559Z - EXIT_CODE - 0</tspan>
+
+</text>
+</svg>

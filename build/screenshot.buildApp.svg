@@ -1,9 +1,9 @@
-<svg height="702" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="702" fill="#555" width="720"></rect>
+<svg height="814" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="814" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApp]\x1b[0m - 2020-02-19T20:01:10.701Z - npm-testing /home/travis/build\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApp]\x1b[0m - 2020-02-19T20:06:02.487Z - npm-testing /home/travis/build\</tspan>
 <tspan x="10" y="58">/kaizhu256/node-sqljs-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,28 +13,28 @@
 <tspan x="10" y="106">buildApp - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/t\</tspan>
 <tspan x="10" y="122">est-report.json</tspan>
 
-<tspan x="10" y="138">&gt; http-server listening on port 65233</tspan>
+<tspan x="10" y="138">&gt; http-server listening on port 41283</tspan>
 
 <tspan x="10" y="154"></tspan>
 
 <tspan x="10" y="170">buildApp - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/t\</tspan>
 <tspan x="10" y="186">est-report.json</tspan>
 
-<tspan x="10" y="202">jslint - 299ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
+<tspan x="10" y="202">jslint - 506ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
 
-<tspan x="10" y="218">jslint - 160ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
+<tspan x="10" y="218">jslint - 206ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
 
 <tspan x="10" y="234">jslint - 1ms /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
 
 <tspan x="10" y="250">jslint - 7ms /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
 
-<tspan x="10" y="266">jslint - 23ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
+<tspan x="10" y="266">jslint - 31ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
 
-<tspan x="10" y="282">http-server listening on port 63479</tspan>
+<tspan x="10" y="282">http-server listening on port 35006</tspan>
 
-<tspan x="10" y="298">testRunDefault - 11833 ms - testCase pending - testCase_buildApp_default ...</tspan>
+<tspan x="10" y="298">testRunDefault - 10273 ms - testCase pending - testCase_buildApp_default ...</tspan>
 
-<tspan x="10" y="314">testRunDefault - 12881 ms - [node test-case 1 of 1 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="314">testRunDefault - 13398 ms - [node test-case 1 of 1 passed] - testCase_buildApp_default</tspan>
 
 <tspan x="10" y="330"></tspan>
 
@@ -45,40 +45,53 @@
 
 <tspan x="10" y="394">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="410">| test-report - buildApidoc - node - linux v13.9.0 - 2020-02-19T20:01:05.128Z</tspan>
+<tspan x="10" y="410">| test-report - buildApidoc - node - linux v13.9.0 - 2020-02-19T20:05:56.493Z</tspan>
 
-<tspan x="10" y="426">|   12882 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="426">|   13399 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="442">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="458">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="474">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T20:00:58.511Z</tspan>
+<tspan x="10" y="474">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T20:05:50.023Z</tspan>
 
-<tspan x="10" y="490">|      20 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="490">|      17 ms            0 failed        2 passed      |</tspan>
 
 <tspan x="10" y="506">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="522">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T20:00:56.244Z</tspan>
+<tspan x="10" y="522">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T20:05:47.845Z</tspan>
 
-<tspan x="10" y="538">|    5952 ms            0 failed        7 passed      |</tspan>
+<tspan x="10" y="538">|    5887 ms            0 failed        7 passed      |</tspan>
 
 <tspan x="10" y="554">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="570"></tspan>
+<tspan x="10" y="570">| test-report - npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537\</tspan>
+<tspan x="10" y="586">.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T20:05:10.329Z</tspan>
 
-<tspan x="10" y="586">created test-report file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/test-report.html</tspan>
+<tspan x="10" y="602">|      16 ms            0 failed        2 passed      |</tspan>
 
-<tspan x="10" y="602"></tspan>
+<tspan x="10" y="618">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="618"></tspan>
+<tspan x="10" y="634">| test-report - npmTestPublished - node - linux v13.9.0 - 2020-02-19T20:05:07.619Z</tspan>
 
-<tspan x="10" y="634">buildApp - 0 failed tests</tspan>
+<tspan x="10" y="650">|    5829 ms            0 failed        7 passed      |</tspan>
 
-<tspan x="10" y="650"></tspan>
+<tspan x="10" y="666">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="666"></tspan>
+<tspan x="10" y="682"></tspan>
 
-<tspan x="10" y="682">\x1b[35m[MODE_BUILD=buildApp]\x1b[0m - 2020-02-19T20:01:18.301Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="698">created test-report file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/test-report.html</tspan>
+
+<tspan x="10" y="714"></tspan>
+
+<tspan x="10" y="730"></tspan>
+
+<tspan x="10" y="746">buildApp - 0 failed tests</tspan>
+
+<tspan x="10" y="762"></tspan>
+
+<tspan x="10" y="778"></tspan>
+
+<tspan x="10" y="794">\x1b[35m[MODE_BUILD=buildApp]\x1b[0m - 2020-02-19T20:06:10.194Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>

@@ -1,27 +1,27 @@
 {
     "testPlatformList": [
         {
-            "name": "buildApidoc - node - linux v13.9.0 - 2020-02-19T19:47:42.109Z",
+            "name": "buildApidoc - node - linux v13.9.0 - 2020-02-19T20:05:56.493Z",
             "testCaseList": [
                 {
                     "isBrowser": false,
                     "name": "testCase_buildApp_default",
                     "status": "passed",
                     "errorStack": "",
-                    "timeElapsed": 7025,
-                    "timeStart": 1582141665984,
+                    "timeElapsed": 7126,
+                    "timeStart": 1582142762880,
                     "isDone": true
                 }
             ],
-            "timeElapsed": 10792,
+            "timeElapsed": 13399,
             "testsFailed": 0,
             "testsPassed": 1,
             "testsPending": 0,
             "status": "passed",
-            "timeStart": 1582141662218
+            "timeStart": 1582142756608
         },
         {
-            "name": "buildApp - node - linux v13.9.0 - 2020-02-19T19:47:45.823Z",
+            "name": "buildApp - node - linux v13.9.0 - 2020-02-19T20:06:02.670Z",
             "testCaseList": [],
             "timeElapsed": 0,
             "testsFailed": 0,
@@ -30,7 +30,7 @@
             "status": "passed"
         },
         {
-            "name": "npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T19:47:35.779Z",
+            "name": "npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T20:05:50.023Z",
             "testCaseList": [
                 {
                     "isBrowser": true,
@@ -38,7 +38,7 @@
                     "status": "passed",
                     "errorStack": "",
                     "timeElapsed": 0,
-                    "timeStart": 1582141656547,
+                    "timeStart": 1582142750788,
                     "isDone": true
                 },
                 {
@@ -47,12 +47,12 @@
                     "status": "passed",
                     "errorStack": "",
                     "timeElapsed": 0,
-                    "timeStart": 1582141656554,
+                    "timeStart": 1582142750797,
                     "isDone": true
                 }
             ],
-            "timeStart": 1582141656543,
-            "timeElapsed": 14,
+            "timeStart": 1582142750782,
+            "timeElapsed": 17,
             "testsFailed": 0,
             "testsPassed": 2,
             "testsPending": 0,
@@ -60,7 +60,7 @@
             "screenshot": "screenshot.npmTest.browser.%2F.png"
         },
         {
-            "name": "npmTest - node - linux v13.9.0 - 2020-02-19T19:47:33.565Z",
+            "name": "npmTest - node - linux v13.9.0 - 2020-02-19T20:05:47.845Z",
             "testCaseList": [
                 {
                     "isBrowser": false,
@@ -68,7 +68,7 @@
                     "status": "passed",
                     "errorStack": "",
                     "timeElapsed": 0,
-                    "timeStart": 1582141655079,
+                    "timeStart": 1582142749343,
                     "isDone": true
                 },
                 {
@@ -76,8 +76,8 @@
                     "name": "testCase_buildApp_default",
                     "status": "passed",
                     "errorStack": "",
-                    "timeElapsed": 5801,
-                    "timeStart": 1582141655080,
+                    "timeElapsed": 5864,
+                    "timeStart": 1582142749345,
                     "isDone": true
                 },
                 {
@@ -85,8 +85,8 @@
                     "name": "testCase_buildLib_default",
                     "status": "passed",
                     "errorStack": "",
-                    "timeElapsed": 4,
-                    "timeStart": 1582141655102,
+                    "timeElapsed": 3,
+                    "timeStart": 1582142749367,
                     "isDone": true
                 },
                 {
@@ -95,7 +95,7 @@
                     "status": "passed",
                     "errorStack": "",
                     "timeElapsed": 6,
-                    "timeStart": 1582141655107,
+                    "timeStart": 1582142749371,
                     "isDone": true
                 },
                 {
@@ -104,7 +104,7 @@
                     "status": "passed",
                     "errorStack": "",
                     "timeElapsed": 0,
-                    "timeStart": 1582141655114,
+                    "timeStart": 1582142749378,
                     "isDone": true
                 },
                 {
@@ -113,7 +113,7 @@
                     "status": "passed",
                     "errorStack": "",
                     "timeElapsed": 0,
-                    "timeStart": 1582141655114,
+                    "timeStart": 1582142749379,
                     "isDone": true
                 },
                 {
@@ -121,24 +121,128 @@
                     "name": "testCase_webpage_default",
                     "status": "passed",
                     "errorStack": "",
-                    "timeElapsed": 1727,
-                    "timeStart": 1582141655115,
+                    "timeElapsed": 1742,
+                    "timeStart": 1582142749380,
                     "isDone": true
                 }
             ],
-            "timeElapsed": 5822,
+            "timeElapsed": 5887,
             "testsFailed": 0,
             "testsPassed": 7,
             "testsPending": 0,
             "status": "passed",
-            "timeStart": 1582141655059
+            "timeStart": 1582142749322
+        },
+        {
+            "name": "npmTestPublished - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T20:05:10.329Z",
+            "testCaseList": [
+                {
+                    "isBrowser": true,
+                    "name": "testCase_buildApp_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 0,
+                    "timeStart": 1582142711051,
+                    "isDone": true
+                },
+                {
+                    "isBrowser": true,
+                    "name": "testCase_nop_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 0,
+                    "timeStart": 1582142711061,
+                    "isDone": true
+                }
+            ],
+            "timeStart": 1582142711047,
+            "timeElapsed": 16,
+            "testsFailed": 0,
+            "testsPassed": 2,
+            "testsPending": 0,
+            "status": "passed",
+            "screenshot": "screenshot.npmTestPublished.browser.%2F.png"
+        },
+        {
+            "name": "npmTestPublished - node - linux v13.9.0 - 2020-02-19T20:05:07.619Z",
+            "testCaseList": [
+                {
+                    "isBrowser": false,
+                    "name": "testCase_buildApidoc_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 1,
+                    "timeStart": 1582142709445,
+                    "isDone": true
+                },
+                {
+                    "isBrowser": false,
+                    "name": "testCase_buildApp_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 5808,
+                    "timeStart": 1582142709446,
+                    "isDone": true
+                },
+                {
+                    "isBrowser": false,
+                    "name": "testCase_buildLib_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 2,
+                    "timeStart": 1582142709469,
+                    "isDone": true
+                },
+                {
+                    "isBrowser": false,
+                    "name": "testCase_buildReadme_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 7,
+                    "timeStart": 1582142709471,
+                    "isDone": true
+                },
+                {
+                    "isBrowser": false,
+                    "name": "testCase_buildTest_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 1,
+                    "timeStart": 1582142709478,
+                    "isDone": true
+                },
+                {
+                    "isBrowser": false,
+                    "name": "testCase_nop_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 0,
+                    "timeStart": 1582142709479,
+                    "isDone": true
+                },
+                {
+                    "isBrowser": false,
+                    "name": "testCase_webpage_default",
+                    "status": "passed",
+                    "errorStack": "",
+                    "timeElapsed": 1926,
+                    "timeStart": 1582142709480,
+                    "isDone": true
+                }
+            ],
+            "timeStart": 1582142709425,
+            "timeElapsed": 5829,
+            "testsFailed": 0,
+            "testsPassed": 7,
+            "testsPending": 0,
+            "status": "passed"
         }
     ],
-    "date": "2020-02-19T19:47:45.826Z",
+    "date": "2020-02-19T20:06:02.674Z",
     "errorStackList": [],
-    "timeElapsed": 7183,
+    "timeElapsed": 7332,
     "testsFailed": 0,
-    "testsPassed": 10,
+    "testsPassed": 19,
     "testsPending": 0,
-    "timeStart": 1582141665827
+    "timeStart": 1582142762675
 }
