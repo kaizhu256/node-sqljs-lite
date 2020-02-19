@@ -1,0 +1,14 @@
+<svg height="110" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="110" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">npm install - 3 megabytes</tspan>
+
+<tspan x="10" y="42"></tspan>
+
+<tspan x="10" y="58">node_modules</tspan>
+
+<tspan x="10" y="74">└── sqljs-lite@2020.2.12 (github:kaizhu256/node-sqljs-lite#fe908436ec41d2499a0a7a4c9d1b305b37867\</tspan>
+<tspan x="10" y="90">c53)</tspan>
+
+</text>
+</svg>
