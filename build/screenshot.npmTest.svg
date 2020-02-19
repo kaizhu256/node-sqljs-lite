@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-02-19T19:30:57.268Z - npm-testing /home/travis/build/\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-02-19T19:38:53.140Z - npm-testing /home/travis/build/\</tspan>
 <tspan x="10" y="58">kaizhu256/node-sqljs-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -23,50 +23,50 @@
 <tspan x="10" y="202">npmTest - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/te\</tspan>
 <tspan x="10" y="218">st-report.json</tspan>
 
-<tspan x="10" y="234">jslint - 183ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
+<tspan x="10" y="234">jslint - 297ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
 
-<tspan x="10" y="250">jslint - 1ms /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="250">jslint - 189ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
 
-<tspan x="10" y="266">jslint - 15ms /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
+<tspan x="10" y="266">jslint - 3ms /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="282">jslint - 60ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
+<tspan x="10" y="282">jslint - 12ms /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
 
-<tspan x="10" y="298">jslint - 186ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
+<tspan x="10" y="298">jslint - 25ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
 
-<tspan x="10" y="314">http-server listening on port 38084</tspan>
+<tspan x="10" y="314">http-server listening on port 60022</tspan>
 
-<tspan x="10" y="330">testRunDefault - 22 ms - [node test-case 1 of 7 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="330">testRunDefault - 20 ms - [node test-case 1 of 7 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="346">testRunDefault - 49 ms - [node test-case 2 of 7 passed] - testCase_buildLib_default</tspan>
+<tspan x="10" y="346">testRunDefault - 45 ms - [node test-case 2 of 7 passed] - testCase_buildLib_default</tspan>
 
-<tspan x="10" y="362">testRunDefault - 57 ms - [node test-case 3 of 7 passed] - testCase_buildReadme_default</tspan>
+<tspan x="10" y="362">testRunDefault - 52 ms - [node test-case 3 of 7 passed] - testCase_buildReadme_default</tspan>
 
-<tspan x="10" y="378">testRunDefault - 58 ms - [node test-case 4 of 7 passed] - testCase_buildTest_default</tspan>
+<tspan x="10" y="378">testRunDefault - 53 ms - [node test-case 4 of 7 passed] - testCase_buildTest_default</tspan>
 
-<tspan x="10" y="394">testRunDefault - 58 ms - [node test-case 5 of 7 passed] - testCase_nop_default</tspan>
+<tspan x="10" y="394">testRunDefault - 54 ms - [node test-case 5 of 7 passed] - testCase_nop_default</tspan>
 
 <tspan x="10" y="410"></tspan>
 
-<tspan x="10" y="426">DevTools listening on ws://127.0.0.1:41423/devtools/browser/215cd520-5c49-4c98-a765-e4dd965941aa</tspan>
+<tspan x="10" y="426">DevTools listening on ws://127.0.0.1:33427/devtools/browser/43741778-81f5-4475-81b4-ac95127042e8</tspan>
 
-<tspan x="10" y="442">[0219/193059.293173:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
+<tspan x="10" y="442">[0219/193854.938862:ERROR:command_buffer_proxy_impl.cc(125)] ContextResult::kTransientFailure: F\</tspan>
 <tspan x="10" y="458">ailed to send GpuChannelMsg_CreateCommandBuffer.</tspan>
 
-<tspan x="10" y="474">[0219/193059.293141:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
+<tspan x="10" y="474">[0219/193854.938757:WARNING:ipc_message_attachment_set.cc(49)] MessageAttachmentSet destroyed wi\</tspan>
 <tspan x="10" y="490">th unconsumed attachments: 0/1</tspan>
 
-<tspan x="10" y="506">[0219/193100.032367:INFO:CONSOLE(379)] "testRunDefault - 7 ms - [browser test-case 1 of 2 passed\</tspan>
-<tspan x="10" y="522">] - testCase_buildApp_default", source: http://127.0.0.1:38084/assets.example.js (379)</tspan>
+<tspan x="10" y="506">http-server listening on port 51672</tspan>
 
-<tspan x="10" y="538">[0219/193100.040276:INFO:CONSOLE(379)] "testRunDefault - 15 ms - [browser test-case 2 of 2 passe\</tspan>
-<tspan x="10" y="554">d] - testCase_nop_default", source: http://127.0.0.1:38084/assets.example.js (379)</tspan>
+<tspan x="10" y="522">[0219/193855.959979:INFO:CONSOLE(379)] "testRunDefault - 6 ms - [browser test-case 1 of 2 passed\</tspan>
+<tspan x="10" y="538">] - testCase_buildApp_default", source: http://127.0.0.1:60022/assets.example.js (379)</tspan>
 
-<tspan x="10" y="570">http-server listening on port 64536</tspan>
+<tspan x="10" y="554">[0219/193855.970040:INFO:CONSOLE(379)] "testRunDefault - 16 ms - [browser test-case 2 of 2 passe\</tspan>
+<tspan x="10" y="570">d] - testCase_nop_default", source: http://127.0.0.1:60022/assets.example.js (379)</tspan>
 
-<tspan x="10" y="586">[0219/193100.152651:INFO:CONSOLE(379)] "domOnEventWindowOnloadTimeElapsed = 516", source: http:/\</tspan>
-<tspan x="10" y="602">/127.0.0.1:38084/assets.example.js (379)</tspan>
+<tspan x="10" y="586">[0219/193856.060330:INFO:CONSOLE(379)] "domOnEventWindowOnloadTimeElapsed = 821", source: http:/\</tspan>
+<tspan x="10" y="602">/127.0.0.1:60022/assets.example.js (379)</tspan>
 
-<tspan x="10" y="618">testRunDefault - 1589 ms - [node test-case 6 of 7 passed] - testCase_webpage_default</tspan>
+<tspan x="10" y="618">testRunDefault - 1644 ms - [node test-case 6 of 7 passed] - testCase_webpage_default</tspan>
 
 <tspan x="10" y="634">Error: Protocol error (Runtime.enable): Target closed.</tspan>
 
@@ -101,7 +101,7 @@
 
 <tspan x="10" y="938">}</tspan>
 
-<tspan x="10" y="954">testRunDefault - 5944 ms - [node test-case 7 of 7 passed] - testCase_buildApp_default</tspan>
+<tspan x="10" y="954">testRunDefault - 5881 ms - [node test-case 7 of 7 passed] - testCase_buildApp_default</tspan>
 
 <tspan x="10" y="970">------------------------|-----------|-----------|-----------|-----------|</tspan>
 
@@ -136,15 +136,15 @@
 <tspan x="10" y="1226">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="1242">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="1258">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T19:30:59.723Z</tspan>
+<tspan x="10" y="1258">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T19:38:55.386Z</tspan>
 
-<tspan x="10" y="1274">|      18 ms            0 failed        2 passed      |</tspan>
+<tspan x="10" y="1274">|      20 ms            0 failed        2 passed      |</tspan>
 
 <tspan x="10" y="1290">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="1306">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T19:30:57.419Z</tspan>
+<tspan x="10" y="1306">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T19:38:53.275Z</tspan>
 
-<tspan x="10" y="1322">|    5945 ms            0 failed        7 passed      |</tspan>
+<tspan x="10" y="1322">|    5882 ms            0 failed        7 passed      |</tspan>
 
 <tspan x="10" y="1338">-------------------------------------------------------</tspan>
 
@@ -162,7 +162,7 @@
 
 <tspan x="10" y="1450"></tspan>
 
-<tspan x="10" y="1466">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-02-19T19:31:05.237Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="1466">\x1b[35m[MODE_BUILD=npmTest]\x1b[0m - 2020-02-19T19:39:00.826Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>

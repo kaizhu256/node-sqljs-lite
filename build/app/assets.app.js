@@ -48361,6 +48361,7 @@ PORT=8081 node ./assets.app.js\n\
     "engines": {\n\
         "node": ">=12.0"\n\
     },\n\
+    "fileCount": 0,\n\
     "homepage": "https://github.com/kaizhu256/node-my-app-lite",\n\
     "keywords": [],\n\
     "license": "MIT",\n\
