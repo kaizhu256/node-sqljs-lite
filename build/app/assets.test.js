@@ -248,6 +248,25 @@ local.testRunDefault(local);
 
 // run shared js-env code - function
 (function () {
-return;
+local.testCase_buildApp_default = function (opt, onError) {
+/*
+ * this function will test buildApp's default handling-behavior
+ */
+    if (local.isBrowser) {
+        onError(undefined, opt);
+        return;
+    }
+    local.testCase_buildReadme_default(opt, local.onErrorThrow);
+    local.testCase_buildLib_default(opt, local.onErrorThrow);
+    local.testCase_buildTest_default(opt, local.onErrorThrow);
+    local.buildApp({
+        assetsList: [
+            {
+                file: "/assets.sqljs_lite.wasm",
+                url: "/assets.sqljs_lite.wasm"
+            }
+        ]
+    }, onError);
+};
 }());
 }());
