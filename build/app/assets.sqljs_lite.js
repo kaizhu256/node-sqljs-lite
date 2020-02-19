@@ -2,7 +2,7 @@
 /*
  * lib.sqljs_lite.js (2020.2.12)
  * https://github.com/kaizhu256/node-sqljs-lite
- * the greatest app in the world!
+ * this zero-dependency package will provide apis to import/export 100mb spreadsheets to/from wasm-sqlite inside browser
  *
  */
 

@@ -3,7 +3,7 @@
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
 <tspan x="10" y="26"></tspan>
 
-<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T19:06:38.354Z - npm-testing /home/travis/bu\</tspan>
+<tspan x="10" y="42">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T19:22:59.958Z - npm-testing /home/travis/bu\</tspan>
 <tspan x="10" y="58">ild/kaizhu256/node-sqljs-lite</tspan>
 
 <tspan x="10" y="74"></tspan>
@@ -13,7 +13,7 @@
 <tspan x="10" y="106">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/buil\</tspan>
 <tspan x="10" y="122">d/test-report.json</tspan>
 
-<tspan x="10" y="138">&gt; http-server listening on port 59517</tspan>
+<tspan x="10" y="138">&gt; http-server listening on port 33621</tspan>
 
 <tspan x="10" y="154">apidocCreate - readExample /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
 
@@ -39,28 +39,28 @@
 
 <tspan x="10" y="330">apidocCreate - requiring /home/travis/build/kaizhu256/node-sqljs-lite ...</tspan>
 
-<tspan x="10" y="346"></tspan>
+<tspan x="10" y="346">apidocCreate - ... required /home/travis/build/kaizhu256/node-sqljs-lite</tspan>
 
-<tspan x="10" y="362">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/buil\</tspan>
-<tspan x="10" y="378">d/test-report.json</tspan>
+<tspan x="10" y="362"></tspan>
 
-<tspan x="10" y="394">apidocCreate - ... required /home/travis/build/kaizhu256/node-sqljs-lite</tspan>
+<tspan x="10" y="378">buildApidoc - merged test-report from file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/buil\</tspan>
+<tspan x="10" y="394">d/test-report.json</tspan>
 
-<tspan x="10" y="410">created apidoc file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/apidoc.html</tspan>
+<tspan x="10" y="410">jslint - 250ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
 
-<tspan x="10" y="426"></tspan>
+<tspan x="10" y="426">created apidoc file /home/travis/build/kaizhu256/node-sqljs-lite/tmp/build/apidoc.html</tspan>
 
-<tspan x="10" y="442">jslint - 281ms /home/travis/build/kaizhu256/node-sqljs-lite/README.md</tspan>
+<tspan x="10" y="442"></tspan>
 
-<tspan x="10" y="458">testRunDefault - 450 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
+<tspan x="10" y="458">testRunDefault - 532 ms - [node test-case 1 of 1 passed] - testCase_buildApidoc_default</tspan>
 
-<tspan x="10" y="474">jslint - 163ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
+<tspan x="10" y="474">jslint - 168ms /home/travis/build/kaizhu256/node-sqljs-lite/lib.sqljs_lite.js</tspan>
 
-<tspan x="10" y="490">jslint - 9ms /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
+<tspan x="10" y="490">jslint - 1ms /home/travis/build/kaizhu256/node-sqljs-lite/npm_scripts.sh</tspan>
 
-<tspan x="10" y="506">jslint - 4ms /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
+<tspan x="10" y="506">jslint - 7ms /home/travis/build/kaizhu256/node-sqljs-lite/package.json</tspan>
 
-<tspan x="10" y="522">jslint - 22ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
+<tspan x="10" y="522">jslint - 25ms /home/travis/build/kaizhu256/node-sqljs-lite/test.js</tspan>
 
 <tspan x="10" y="538"></tspan>
 
@@ -71,22 +71,22 @@
 
 <tspan x="10" y="602">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="618">| test-report - buildApidoc - node - linux v13.9.0 - 2020-02-19T19:06:38.473Z</tspan>
+<tspan x="10" y="618">| test-report - buildApidoc - node - linux v13.9.0 - 2020-02-19T19:23:00.081Z</tspan>
 
-<tspan x="10" y="634">|     454 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="634">|     532 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="650">-------------------------------------------------------</tspan>
 
 <tspan x="10" y="666">| test-report - npmTest - browser - / - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTM\</tspan>
-<tspan x="10" y="682">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T19:06:32.043Z</tspan>
+<tspan x="10" y="682">L, like Gecko) HeadlessChrome/80.0.3987.116 Safari/537.36 - 2020-02-19T19:22:53.519Z</tspan>
 
-<tspan x="10" y="698">|      17 ms            0 failed        1 passed      |</tspan>
+<tspan x="10" y="698">|      19 ms            0 failed        1 passed      |</tspan>
 
 <tspan x="10" y="714">-------------------------------------------------------</tspan>
 
-<tspan x="10" y="730">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T19:06:29.674Z</tspan>
+<tspan x="10" y="730">| test-report - npmTest - node - linux v13.9.0 - 2020-02-19T19:22:51.158Z</tspan>
 
-<tspan x="10" y="746">|    5862 ms            0 failed        7 passed      |</tspan>
+<tspan x="10" y="746">|    5968 ms            0 failed        7 passed      |</tspan>
 
 <tspan x="10" y="762">-------------------------------------------------------</tspan>
 
@@ -104,7 +104,7 @@
 
 <tspan x="10" y="874"></tspan>
 
-<tspan x="10" y="890">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T19:06:39.319Z - EXIT_CODE - 0</tspan>
+<tspan x="10" y="890">\x1b[35m[MODE_BUILD=buildApidoc]\x1b[0m - 2020-02-19T19:23:00.989Z - EXIT_CODE - 0</tspan>
 
 </text>
 </svg>
