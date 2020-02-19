@@ -8,6 +8,8 @@ this zero-dependency package will import/export 100mb spreadsheets to/from wasm-
 
 [![travis-ci.org build-status](https://api.travis-ci.org/kaizhu256/node-sqljs-lite.svg)](https://travis-ci.org/kaizhu256/node-sqljs-lite) [![coverage](https://kaizhu256.github.io/node-sqljs-lite/build/coverage.badge.svg)](https://kaizhu256.github.io/node-sqljs-lite/build/coverage.html/index.html)
 
+[![NPM](https://nodei.co/npm/sqljs-lite.png?downloads=true)](https://www.npmjs.com/package/sqljs-lite)
+
 [![build commit status](https://kaizhu256.github.io/node-sqljs-lite/build/build.badge.svg)](https://travis-ci.org/kaizhu256/node-sqljs-lite)
 
 | git-branch : | [master](https://github.com/kaizhu256/node-sqljs-lite/tree/master) | [beta](https://github.com/kaizhu256/node-sqljs-lite/tree/beta) | [alpha](https://github.com/kaizhu256/node-sqljs-lite/tree/alpha)|
@@ -18,6 +20,8 @@ this zero-dependency package will import/export 100mb spreadsheets to/from wasm-
 | build-artifacts : | [![build-artifacts](https://kaizhu256.github.io/node-sqljs-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-sqljs-lite/tree/gh-pages/build..master..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-sqljs-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-sqljs-lite/tree/gh-pages/build..beta..travis-ci.org) | [![build-artifacts](https://kaizhu256.github.io/node-sqljs-lite/glyphicons_144_folder_open.png)](https://github.com/kaizhu256/node-sqljs-lite/tree/gh-pages/build..alpha..travis-ci.org)|
 
 [![npmPackageListing](https://kaizhu256.github.io/node-sqljs-lite/build/screenshot.npmPackageListing.svg)](https://github.com/kaizhu256/node-sqljs-lite)
+
+![npmPackageDependencyTree](https://kaizhu256.github.io/node-sqljs-lite/build/screenshot.npmPackageDependencyTree.svg)
 
 
 
@@ -105,7 +109,7 @@ this script will run a web-demo of sqljs-lite
 instruction
     1. save this script as example.js
     2. run shell-command:
-        $ npm install kaizhu256/node-sqljs-lite#alpha && \
+        $ npm install sqljs-lite && \
             PORT=8081 node example.js
     3. open a browser to http://127.0.0.1:8081 and play with web-demo
     4. edit this script to suit your needs
@@ -1021,7 +1025,7 @@ shBuildCiAfter () {(set -e
 )}
 
 shBuildCiBefore () {(set -e
-    # shNpmTestPublished
+    shNpmTestPublished
     shReadmeTest example.js
 )}
 
