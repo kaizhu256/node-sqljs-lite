@@ -52,7 +52,7 @@
 
         href="https://github.com/kaizhu256/node-sqljs-lite"
 
-    >sqljs-lite (2019.9.8)</a>
+    >sqljs-lite (2020.2.12)</a>
 </h1>
 <h4>the greatest app in the world!</h4>
 <div class="apidocSectionDiv"><a
@@ -67,6 +67,24 @@
             <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.assertOrThrow">
             function <span class="apidocSignatureSpan">sqljs-lite.</span>assertOrThrow
             <span class="apidocSignatureSpan">(passed, message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.coalesce">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>coalesce
+            <span class="apidocSignatureSpan">(...argList)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.default">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>default
+            <span class="apidocSignatureSpan">(moduleConfig)</span>
             </a>
 
         </li>
@@ -102,7 +120,7 @@
 
             <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.identity">
             function <span class="apidocSignatureSpan">sqljs-lite.</span>identity
-            <span class="apidocSignatureSpan">(value)</span>
+            <span class="apidocSignatureSpan">(val)</span>
             </a>
 
         </li>
@@ -121,6 +139,51 @@
             <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.objectAssignDefault">
             function <span class="apidocSignatureSpan">sqljs-lite.</span>objectAssignDefault
             <span class="apidocSignatureSpan">(target, source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.querySelector">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>querySelector
+            <span class="apidocSignatureSpan">(selectors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.querySelectorAll">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>querySelectorAll
+            <span class="apidocSignatureSpan">(selectors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.sqljsExec">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>sqljsExec
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.sqljsTableExport">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>sqljsTableExport
+            <span class="apidocSignatureSpan">(opt)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.sqljsTableImport">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>sqljsTableImport
+            <span class="apidocSignatureSpan">(opt)</span>
             </a>
 
         </li>
@@ -151,6 +214,19 @@
 
     </ol></li>
 
+    <li class="apidocModuleLi"><a href="#apidoc.module.sqljs-lite.default">module sqljs-lite.default</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.elem.sqljs-lite.default.default">
+            function <span class="apidocSignatureSpan">sqljs-lite.</span>default
+            <span class="apidocSignatureSpan">(moduleConfig)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -168,7 +244,7 @@
 <span class="apidocCodeCommentSpan">/*
  * this function will throw err.&lt;message&gt; if &lt;passed&gt; is falsy
  */
-</span>    var err;
+</span>    let err;
     if (passed) {
         return;
     }
@@ -185,11 +261,124 @@
             // if message is a string, then leave as is
             ? message
             // else JSON.stringify message
-            : JSON.stringify(message, null, 4)
+            : JSON.stringify(message, undefined, 4)
         )
     );
     throw err;
 }</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.coalesce" id="apidoc.elem.sqljs-lite.coalesce">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>coalesce
+        <span class="apidocSignatureSpan">(...argList)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">coalesce = function (...argList) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will coalesce null, undefined, or &quot;&quot; in &lt;argList&gt;
+ */
+</span>    let arg;
+    let ii;
+    ii = 0;
+    while (ii &lt; argList.length) {
+        arg = argList[ii];
+        if (arg !== null &amp;&amp; arg !== undefined &amp;&amp; arg !== &quot;&quot;) {
+            break;
+        }
+        ii += 1;
+    }
+    return arg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.default" id="apidoc.elem.sqljs-lite.default">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>default
+        <span class="apidocSignatureSpan">(moduleConfig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">default = function (moduleConfig) {
+
+    if (initSqlJsPromise){
+      return initSqlJsPromise;
+    }
+    // If we&apos;re here, we&apos;ve never called this function before
+    initSqlJsPromise = new Promise((resolveModule, reject) =&gt; {
+
+        // We are modularizing this manually because the current modularize setting in Emscripten has some issues:
+        // https://github.com/kripken/emscripten/issues/5820
+
+        // The way to affect the loading of emcc compiled modules is to create a variable called `Module` and add
+        // properties to it, like `preRun`, `postRun`, etc
+        // We are using that to get notified when the WASM has finished loading.
+        // Only then will we return our promise
+
+        // If they passed in a moduleConfig object, use that
+        // Otherwise, initialize Module to the empty object
+        var Module = typeof moduleConfig !== &apos;undefined&apos; ? moduleConfig : {};
+
+        // EMCC only allows for a single onAbort function (not an array of functions)
+        // So if the user defined their own onAbort function, we remember it and call it
+        var originalOnAbortFunction = Module[&apos;onAbort&apos;];
+        Module[&apos;onAbort&apos;] = function (errorThatCausedAbort) {
+            reject(new Error(errorThatCausedAbort));
+            if (originalOnAbortFunction){
+              originalOnAbortFunction(errorThatCausedAbort);
+            }
+        };
+
+        Module[&apos;postRun&apos;] = Module[&apos;postRun&apos;] || [];
+        Module[&apos;postRun&apos;].push(function () {
+            // When Emscripted calls postRun, this promise resolves with the built Module
+            resolveModule(Module);
+        });
+
+        // There is a section of code in the emcc-generated code below that looks like this:
+        // (Note that this is lowercase `module`)
+        // if (typeof module !== &apos;undefined&apos;) {
+        //     module[&apos;exports&apos;] = Module;
+        // }
+        // When that runs, it&apos;s going to overwrite our own modularization export efforts in shell-post.js!
+        // The only way to tell emcc not to emit it is to pass the MODULARIZE=1 or MODULARIZE_INSTANCE=1 flags,
+        // but that carries with it additional unnecessary baggage/bugs we don&apos;t want either.
+        // So, we have three options:
+        // 1) We undefine `module`
+        // 2) We remember what `module[&apos;exports&apos;]` was at the beginning of this function and we restore it later
+        // 3) We write a script to remove those lines of code as part of the Make process.
+        //
+        // Since those are the only lines of code that care about module, we will undefine it. It&apos;s the most straightforward
+        // of the options, and has the side effect of reducing emcc&apos;s efforts to modify the module if its output were to change
+in the future.
+        // That&apos;s a nice side effect since we&apos;re handling the modularization efforts ourselves
+        var module = undefined;
+
+        // The emcc-generated code and shell-post.js code goes below,
+        // meaning that all of it runs inside of this promise. If anything throws an exception, our promise will abort
+// Copyright 2010 The Emscripten Authors.  All rights reserved.
+// Emscripten is available under two separate licenses, the MIT license and the
+// University of Illinois/NCSA Open Source License.  Both these licenses can be
+// found in the LICENSE file.
+
+// The Module object: Our interface to the outside world. We import
+// and export values on it. There are various ways Module can be used:
+// 1. Not defined. We create it here
+// 2. A function parameter, function(Module) { ..generated code.. }
+// 3. pre-run appended it, var Module = {}; ..generated code..
+// 4. External script tag defines var Module.
+// We need to check if Module already exists (e.g. case 3 above).
+// Substitution will be replaced with actual code on later stage of the build,
+// this way Closure Compiler will not mangle it (e.g. case 4. above).
+// Note that if you want to run closure, and also to use Module
+// after the genera...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -206,7 +395,7 @@
 <span class="apidocCodeCommentSpan">/*
  * this function will sync &quot;rm -rf&quot; &lt;dir&gt;
  */
-</span>    var child_process;
+</span>    let child_process;
     try {
         child_process = require(&quot;child_process&quot;);
     } catch (ignore) {
@@ -236,7 +425,7 @@
 <span class="apidocCodeCommentSpan">/*
  * this function will sync write &lt;data&gt; to &lt;file&gt; with &quot;mkdir -p&quot;
  */
-</span>    var fs;
+</span>    let fs;
     try {
         fs = require(&quot;fs&quot;);
     } catch (ignore) {
@@ -277,7 +466,7 @@
     <li>description and source-code<pre class="apidocCodePre">functionOrNop = function (fnc) {
 <span class="apidocCodeCommentSpan">/*
  * this function will if &lt;fnc&gt; exists,
- * them return &lt;fnc&gt;,
+ * return &lt;fnc&gt;,
  * else return &lt;nop&gt;
  */
 </span>    return fnc || local.nop;
@@ -290,15 +479,15 @@
     <h2>
         <a href="#apidoc.elem.sqljs-lite.identity" id="apidoc.elem.sqljs-lite.identity">
         function <span class="apidocSignatureSpan">sqljs-lite.</span>identity
-        <span class="apidocSignatureSpan">(value)</span>
+        <span class="apidocSignatureSpan">(val)</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">identity = function (value) {
+    <li>description and source-code<pre class="apidocCodePre">identity = function (val) {
 <span class="apidocCodeCommentSpan">/*
- * this function will return &lt;value&gt;
+ * this function will return &lt;val&gt;
  */
-</span>    return value;
+</span>    return val;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -332,8 +521,7 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">objectAssignDefault = function (target, source) {
 <span class="apidocCodeCommentSpan">/*
- * this function will if items from &lt;target&gt; are
- * null, undefined, or empty-string,
+ * this function will if items from &lt;target&gt; are null, undefined, or &quot;&quot;,
  * then overwrite them with items from &lt;source&gt;
  */
 </span>    target = target || {};
@@ -349,22 +537,424 @@
     return target;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-       }).join(&quot; &quot;).replace((
-           /\u001b\[\d*m/g
-       ), &quot;&quot;) + &quot;\n&quot;;
-       // scroll textarea to bottom
-       elem.scrollTop = elem.scrollHeight;
-   };
+        }).join(&quot; &quot;).replace((
+            /\u001b\[\d*m/g
+        ), &quot;&quot;) + &quot;\n&quot;;
+        // scroll textarea to bottom
+        elem.scrollTop = elem.scrollHeight;
+    };
 });
 local.<span class="apidocCodeKeywordSpan">objectAssignDefault</span>(local, globalThis.domOnEventDelegateDict);
 globalThis.domOnEventDelegateDict = local;
-local.onEventDomDb = local.db &amp;&amp; local.db.onEventDomDb;
-local.testRunBrowser = function (evt) {
-/*
-* this function will run browser-tests
-*/
-   switch (
+}());
+
+
+
+// run node js-env code - init-test
+(function () {
 ...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.querySelector" id="apidoc.elem.sqljs-lite.querySelector">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>querySelector
+        <span class="apidocSignatureSpan">(selectors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">querySelector = function (selectors) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will return first dom-elem that match &lt;selectors&gt;
+ */
+</span>    return (
+        typeof document === &quot;object&quot; &amp;&amp; document
+        &amp;&amp; typeof document.querySelector === &quot;function&quot;
+        &amp;&amp; document.querySelector(selectors)
+    ) || {};
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+local.querySelector = function (selectors) {
+/*
+ * this function will return first dom-elem that match &lt;selectors&gt;
+ */
+    return (
+        typeof document === &quot;object&quot; &amp;&amp; document
+        &amp;&amp; typeof document.querySelector === &quot;function&quot;
+        &amp;&amp; document.<span class="apidocCodeKeywordSpan">querySelector</span>(selectors)
+    ) || {};
+};
+local.querySelectorAll = function (selectors) {
+/*
+ * this function will return dom-elem-list that match &lt;selectors&gt;
+ */
+    return (
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.querySelectorAll" id="apidoc.elem.sqljs-lite.querySelectorAll">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>querySelectorAll
+        <span class="apidocSignatureSpan">(selectors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">querySelectorAll = function (selectors) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will return dom-elem-list that match &lt;selectors&gt;
+ */
+</span>    return (
+        typeof document === &quot;object&quot; &amp;&amp; document
+        &amp;&amp; typeof document.querySelectorAll === &quot;function&quot;
+        &amp;&amp; Array.from(document.querySelectorAll(selectors))
+    ) || [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+local.querySelectorAll = function (selectors) {
+/*
+ * this function will return dom-elem-list that match &lt;selectors&gt;
+ */
+    return (
+        typeof document === &quot;object&quot; &amp;&amp; document
+        &amp;&amp; typeof document.querySelectorAll === &quot;function&quot;
+        &amp;&amp; Array.from(document.<span class="apidocCodeKeywordSpan">querySelectorAll</span>(selectors))
+    ) || [];
+};
+// require builtin
+if (!local.isBrowser) {
+    local.assert = require(&quot;assert&quot;);
+    local.buffer = require(&quot;buffer&quot;);
+    local.child_process = require(&quot;child_process&quot;);
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.sqljsExec" id="apidoc.elem.sqljs-lite.sqljsExec">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>sqljsExec
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">sqljsExec = function (msg) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will post &lt;msg&gt; to worker and return a promise
+ */
+</span>    let callback;
+    let err;
+    // preserve stack-trace
+    err = new Error();
+    // normalize &lt;msg&gt;
+    if (typeof msg === &quot;string&quot;) {
+        msg = {
+            sql: msg
+        };
+    }
+    msg = Object.assign({
+        action: &quot;exec&quot;,
+        sql: &quot;\n&quot;
+    }, msg);
+    return new Promise(function (resolve, reject) {
+        callback = function (data) {
+            // if &lt;data&gt;.error, then prepend it to &lt;err&gt;.stack and reject
+            if (data.error) {
+                err.message = data.error;
+                err.stack = data.error + &quot;\n&quot; + err.stack;
+                reject(err);
+                return;
+            }
+            resolve(data);
+        };
+        // increment callbackId
+        callbackId = (callbackId | 0) + 1;
+        msg.id = callbackId;
+        callbackDict[msg.id] = callback;
+        worker.postMessage(msg);
+    });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.sqljsTableExport" id="apidoc.elem.sqljs-lite.sqljsTableExport">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>sqljsTableExport
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">async function (opt) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will export table &lt;opt&gt;.sql &quot;SELECT ... FROM ...&quot;
+ * from sqlite3
+ */
+</span>    let csv;
+    let data;
+    if (typeof opt === &quot;string&quot;) {
+        opt = {
+            exportType: &quot;dict&quot;,
+            sql: opt
+        };
+    }
+    data = (
+        await local.sqljsExec(opt)
+    ).results[0] || {
+        columns: [
+            &quot;column_1&quot;
+        ],
+        values: []
+    };
+    switch (opt.exportType) {
+    case &quot;csv&quot;:
+        break;
+    // export - list of dict
+    case &quot;dict&quot;:
+        return data.values.map(function (list) {
+            let dict;
+            dict = {};
+            data.columns.forEach(function (key, ii) {
+                dict[key] = list[ii];
+            });
+            return dict;
+        });
+    // export - list of list
+    default:
+        return data;
+    }
+/*
+https://tools.ietf.org/html/rfc4180#section-2
+2.  Definition of the CSV Format
+While there are various specifications and implementations for the
+CSV format (for ex. [4], [5], [6] and [7]), there is no formal
+specification in existence, which allows for a wide variety of
+interpretations of CSV files.  This section documents the format that
+seems to be followed by most implementations:
+1.  Each record is located on a separate line, delimited by a line
+break (CRLF).  For example:
+aaa,bbb,ccc CRLF
+zzz,yyy,xxx CRLF
+2.  The last record in the file may or may not have an ending line
+break.  For example:
+aaa,bbb,ccc CRLF
+zzz,yyy,xxx
+3.  There maybe an optional header line appearing as the first line
+of the file with the same format as normal record lines.  This
+header will contain names corresponding to the fields in the file
+and should contain the same number of fields as the records in
+the rest of the file (the presence or absence of the header line
+should be indicated via the optional &quot;header&quot; parameter of this
+MIME type).  For example:
+field_name,field_name,field_name CRLF
+aaa,bbb,ccc CRLF
+zzz,yyy,xxx CRLF
+4.  Within the header and each record, there may be one or more
+fields, separated by commas.  Each line should contain the same
+number of fields throughout the file.  Spaces are considered part
+of a field and should not be ignored.  The last field in the
+record must not be followed by a comma.  For example:
+aaa,bbb,ccc
+5.  Each field may or may not be enclosed in double quotes (however
+some programs, such as Microsoft Excel, do not use double quotes
+at all).  If fields are not enclosed with double quotes, then
+double quotes may not appear inside the fields.  For example:
+&quot;aaa&quot;,&quot;bbb&quot;,&quot;ccc&quot; CRLF
+zzz,yyy,xxx
+6.  Fields containing line breaks (CRLF), double quotes, and commas
+should be enclosed in double-quotes.  For example:
+&quot;aaa&quot;,&quot;b CRLF
+bb&quot;,&quot;ccc&quot; CRLF
+zzz,yyy,xxx
+7.  If double-quotes are used to enclose fields, then a double-quote
+appearing inside a field must be escaped by preceding it with
+another double quote.  For example:
+&quot;aaa&quot;,&quot;b&quot;&quot;bb&quot;,&quot;ccc&quot;
+*/
+    csv = &quot;&quot;;
+/*
+3.  There maybe an optional header line appearing as the first line
+of the file with the same format as normal record lines.  This
+header will contain names corresponding to the fields in the file
+and should contain the same number of fields as the records in
+the rest of the file (the presence or absence of the header line
+should be indicated via the optional &quot;header&quot; parameter of this
+MIME type).  For example:
+field_name,field_name,field_name CRLF
+aaa,bbb,ccc CRLF
+zzz,yyy,xxx CRLF
+*/
+    data.values.unshift(data.columns);
+    data.values.forEach(function (row) {
+        csv += row.map(function (val) {
+            if (val === null) {
+                return &quot;&quot;;
+            }
+            if (typeof val === &quot;string&quot;) {
+/*
+7.  If double-quotes are used to enclose fields, then a double-quote
+appearing inside a field must be escaped by preceding it with
+another double quote.  For example:
+&quot;aaa...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.sqljsTableImport" id="apidoc.elem.sqljs-lite.sqljsTableImport">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>sqljsTableImport
+        <span class="apidocSignatureSpan">(opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">async function (opt) {
+<span class="apidocCodeCommentSpan">/*
+ * this function will import table &lt;opt&gt;.csv or &lt;opt&gt;.values into sqlite3
+ */
+</span>    let byteLength;
+    let columns;
+    let csv;
+    let match;
+    let quote;
+    let rgx;
+    let row;
+    let rowLength;
+    let rowid;
+    let sqlCommand;
+    let sqlEnd;
+    let sqlExec;
+    let sqlInsert;
+    let sqlProgress;
+    let sqlSanitize;
+    let sqlStringify;
+    let tableName;
+    let timeStart;
+    let val;
+    let values;
+    sqlEnd = async function () {
+    /*
+     * this function will insert remaining rows into sqlite3
+     * and count inserted rows
+     */
+        // insert remaining rows
+        sqlExec();
+        // handle null-case
+        if (!rowid) {
+            row = [
+                &quot;column_1&quot;
+            ];
+            sqlInsert();
+            sqlExec();
+        }
+        // count inserted rows
+        return (
+            await local.sqljsExec({
+                sql: sqlSanitize(&quot;SELECT COUNT(*) FROM &quot; + tableName + &quot;;&quot;)
+            })
+        ).results[0].values[0][0];
+    };
+    sqlExec = function () {
+    /*
+     * this function will exec &lt;sqlCommand&gt; in sqlite3
+     */
+        let opt2;
+        if (!sqlCommand) {
+            return;
+        }
+        // init opt2
+        byteLength += sqlCommand.length;
+        opt2 = {
+            byteLength,
+            rowid
+        };
+        // exec &lt;sqlCommand&gt;
+        local.sqljsExec({
+            sql: sqlSanitize(
+                &quot;INSERT INTO &quot; + tableName + &quot; VALUES\n&quot;
+                + sqlCommand.slice(0, -2)
+                + &quot;;&quot;
+            )
+        }).then(function () {
+            sqlProgress(opt2);
+        });
+        // reset &lt;sqlCommand&gt;
+        sqlCommand = &quot;&quot;;
+    };
+    sqlInsert = function () {
+    /*
+     * this function will insert &lt;row&gt; into sqlite3
+     */
+        let ii;
+        let tmp;
+        // insert &lt;columns&gt;
+        if (!rowid &amp;&amp; columns === &quot;create&quot;) {
+            columns = row;
+            tmp = Array.from(row);
+            ii = 0;
+            while (ii &lt; row.length) {
+                row[ii] = &quot;column_&quot; + (ii + 1);
+                ii += 1;
+            }
+            sqlInsert();
+            row = tmp;
+        }
+        // sql-stringify &lt;row&gt;
+        ii = 0;
+        while (ii &lt; row.length) {
+            row[ii] = sqlStringify(row[ii]);
+            ii += 1;
+        }
+        // create table &lt;tableName&gt;
+        if (!rowid) {
+            rowLength = row.length;
+            local.sqljsExec({
+                sql: sqlSanitize(
+                    &quot;DROP TABLE IF EXISTS &quot; + tableName + &quot;;\n&quot;
+                    + &quot;CREATE TEMP TABLE &quot; + tableName + &quot; (&quot;
+                    + row.join(&quot; TEXT,&quot;) + &quot; TEXT&quot;
+                    + &quot;);&quot;
+                )
+            });
+            // reset &lt;row&gt;
+            row = [];
+            rowid += 1;
+            return;
+        }
+        if (row.length) {
+            // enforce &lt;rowLength&gt;
+            sqlCommand += &quot;(&quot;;
+            ii = 0;
+            while (ii &lt; rowLength) {
+                if (ii) {
+                    sqlCommand += &quot;,&quot;;
+                }
+                sqlCommand += row[ii] || &quot;&apos;&apos;&quot;;
+                ii += 1;
+            }
+            sqlCommand += &quot;),\n&quot;;
+            // reset &lt;row&gt;
+            row = [];
+            rowid += 1;
+        }
+        // execute &lt;sqlCommand&gt;
+        if (sqlCommand.length &amp;&amp; sqlCommand.length &gt;= 0x100000) {
+            sqlExec();
+            return true;
+        }
+    };
+    sqlProgress = opt.sqlProgress || function (opt2) {
+    /*
+     * this function will give progress-updates
+     * when inserting large data (e.g. 100mb) into sqlite3
+     */
+        console.error(
+            &quot;sqljsTableImport&quot;
+            + &quot; - &quot; + (Date.now() - timeStart) + &quot; ms&quot;...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -374,6 +964,96 @@ local.testRunBrowser = function (evt) {
 
 
 
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.sqljs-lite.default" id="apidoc.module.sqljs-lite.default">module sqljs-lite.default</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.elem.sqljs-lite.default.default" id="apidoc.elem.sqljs-lite.default.default">
+        function <span class="apidocSignatureSpan">sqljs-lite.</span>default
+        <span class="apidocSignatureSpan">(moduleConfig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">default = function (moduleConfig) {
+
+    if (initSqlJsPromise){
+      return initSqlJsPromise;
+    }
+    // If we&apos;re here, we&apos;ve never called this function before
+    initSqlJsPromise = new Promise((resolveModule, reject) =&gt; {
+
+        // We are modularizing this manually because the current modularize setting in Emscripten has some issues:
+        // https://github.com/kripken/emscripten/issues/5820
+
+        // The way to affect the loading of emcc compiled modules is to create a variable called `Module` and add
+        // properties to it, like `preRun`, `postRun`, etc
+        // We are using that to get notified when the WASM has finished loading.
+        // Only then will we return our promise
+
+        // If they passed in a moduleConfig object, use that
+        // Otherwise, initialize Module to the empty object
+        var Module = typeof moduleConfig !== &apos;undefined&apos; ? moduleConfig : {};
+
+        // EMCC only allows for a single onAbort function (not an array of functions)
+        // So if the user defined their own onAbort function, we remember it and call it
+        var originalOnAbortFunction = Module[&apos;onAbort&apos;];
+        Module[&apos;onAbort&apos;] = function (errorThatCausedAbort) {
+            reject(new Error(errorThatCausedAbort));
+            if (originalOnAbortFunction){
+              originalOnAbortFunction(errorThatCausedAbort);
+            }
+        };
+
+        Module[&apos;postRun&apos;] = Module[&apos;postRun&apos;] || [];
+        Module[&apos;postRun&apos;].push(function () {
+            // When Emscripted calls postRun, this promise resolves with the built Module
+            resolveModule(Module);
+        });
+
+        // There is a section of code in the emcc-generated code below that looks like this:
+        // (Note that this is lowercase `module`)
+        // if (typeof module !== &apos;undefined&apos;) {
+        //     module[&apos;exports&apos;] = Module;
+        // }
+        // When that runs, it&apos;s going to overwrite our own modularization export efforts in shell-post.js!
+        // The only way to tell emcc not to emit it is to pass the MODULARIZE=1 or MODULARIZE_INSTANCE=1 flags,
+        // but that carries with it additional unnecessary baggage/bugs we don&apos;t want either.
+        // So, we have three options:
+        // 1) We undefine `module`
+        // 2) We remember what `module[&apos;exports&apos;]` was at the beginning of this function and we restore it later
+        // 3) We write a script to remove those lines of code as part of the Make process.
+        //
+        // Since those are the only lines of code that care about module, we will undefine it. It&apos;s the most straightforward
+        // of the options, and has the side effect of reducing emcc&apos;s efforts to modify the module if its output were to change
+in the future.
+        // That&apos;s a nice side effect since we&apos;re handling the modularization efforts ourselves
+        var module = undefined;
+
+        // The emcc-generated code and shell-post.js code goes below,
+        // meaning that all of it runs inside of this promise. If anything throws an exception, our promise will abort
+// Copyright 2010 The Emscripten Authors.  All rights reserved.
+// Emscripten is available under two separate licenses, the MIT license and the
+// University of Illinois/NCSA Open Source License.  Both these licenses can be
+// found in the LICENSE file.
+
+// The Module object: Our interface to the outside world. We import
+// and export values on it. There are various ways Module can be used:
+// 1. Not defined. We create it here
+// 2. A function parameter, function(Module) { ..generated code.. }
+// 3. pre-run appended it, var Module = {}; ..generated code..
+// 4. External script tag defines var Module.
+// We need to check if Module already exists (e.g. case 3 above).
+// Substitution will be replaced with actual code on later stage of the build,
+// this way Closure Compiler will not mangle it (e.g. case 4. above).
+// Note that if you want to run closure, and also to use Module
+// after the genera...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
 
 
 </div>

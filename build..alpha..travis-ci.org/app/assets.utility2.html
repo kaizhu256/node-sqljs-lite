@@ -15,20 +15,11 @@
 *:before {
     box-sizing: border-box;
 }
+.uiAnimateSlide {
+    overflow-y: hidden;
+    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;
+}
 /* csslint ignore:end */
-@keyframes uiAnimateShake {
-0%,
-50% {
-    transform: translateX(10px);
-}
-100% {
-    transform: translateX(0);
-}
-25%,
-75% {
-    transform: translateX(-10px);
-}
-}
 @keyframes uiAnimateSpin {
 0% {
     transform: rotate(0deg);
@@ -47,11 +38,6 @@ body {
     margin: 0 40px;
 }
 body > div,
-body > form > div,
-body > form > input,
-body > form > pre,
-body > form > .button,
-body > form > .textarea,
 body > input,
 body > pre,
 body > .button,
@@ -59,19 +45,17 @@ body > .textarea {
     margin-bottom: 20px;
     margin-top: 0;
 }
-body > form > input,
-body > form > .button,
 body > input,
 body > .button {
     width: 20rem;
 }
-body > form > .textarea,
-body > .textarea {
-    height: 10rem;
-    width: 100%;
-}
 body > .readonly {
     background: #ddd;
+}
+body > .textarea {
+    height: 10rem;
+    resize: vertical;
+    width: 100%;
 }
 code,
 pre,
@@ -107,14 +91,6 @@ pre {
     overflow: auto;
     padding: 2px;
 }
-.uiAnimateShake {
-    animation-duration: 500ms;
-    animation-name: uiAnimateShake;
-}
-.uiAnimateSlide {
-    overflow-y: hidden;
-    transition: max-height ease-in 250ms, min-height ease-in 250ms, padding-bottom ease-in 250ms, padding-top ease-in 250ms;
-}
 .zeroPixel {
     border: 0;
     height: 0;
@@ -126,8 +102,6 @@ pre {
 </head>
 <body>
 <div class="uiAnimateSpin" style="animation: uiAnimateSpin 2s linear infinite; border: 5px solid #999; border-radius: 50%; border-top: 5px solid #7d7; display: none; height: 25px; vertical-align: middle; width: 25px;"></div>
-<a class="zeroPixel" download="db.persistence.json" href="" id="dbExportA1"></a>
-<input class="zeroPixel" data-onevent="onEventDomDb" data-onevent-db="dbImportInput" type="file">
 <script>
 /* jslint utility2:true */
 // init domOnEventWindowOnloadTimeElapsed
@@ -136,7 +110,10 @@ pre {
  * this function will measure and print time-elapsed for window.onload
  */
     "use strict";
-    if (window.domOnEventWindowOnloadTimeElapsed) {
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventWindowOnloadTimeElapsed) {
         return;
     }
     window.domOnEventWindowOnloadTimeElapsed = Date.now() + 100;
@@ -162,8 +139,11 @@ pre {
  * this function will display incrementing ajax-progress-bar
  */
     "use strict";
-    var opt;
-    if (window.domOnEventAjaxProgressUpdate) {
+    let opt;
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventAjaxProgressUpdate) {
         return;
     }
     window.domOnEventAjaxProgressUpdate = function (gotoState, onError) {
@@ -196,13 +176,13 @@ pre {
                 opt.width = 0;
             }
             // this algorithm will indefinitely increment ajaxProgress
-            // with successively smaller increments without ever reaching 100%
+            // with successively smaller increments without reaching 100%
             opt.width += 1;
             opt.style.width = Math.max(
                 100 - 75 * Math.exp(-0.125 * opt.width),
                 opt.style.width.slice(0, -1) | 0
             ) + "%";
-            if (!opt.counter) {
+            if (!opt.cnt) {
                 setTimeout(opt, 0, gotoState, onError);
             }
             break;
@@ -229,14 +209,14 @@ pre {
         // ajaxProgress - reset
         default:
             // reset ajaxProgress
-            opt.counter = 0;
+            opt.cnt = 0;
             opt.width = 0;
             opt.style.width = "0%";
         }
     };
     opt = window.domOnEventAjaxProgressUpdate;
     opt.end = function (onError) {
-        opt.counter = 0;
+        opt.cnt = 0;
         window.domOnEventAjaxProgressUpdate(2, onError);
     };
     opt.elem = document.getElementById("domElementAjaxProgress1");
@@ -265,7 +245,7 @@ pre {
     });
     // init state
     opt.background = opt.style.background;
-    opt.counter = 0;
+    opt.cnt = 0;
     opt.width = 0;
 }());
 
@@ -274,49 +254,54 @@ pre {
 // init domOnEventDelegateDict
 (function () {
 /*
- * this function will handle delegated dom-event
+ * this function will handle delegated dom-evt
  */
     "use strict";
-    var timerTimeoutDict;
-    if (window.domOnEventDelegateDict) {
+    let debounce;
+    let timerTimeout;
+    debounce = function () {
+        return setTimeout(function () {
+            timerTimeout = undefined;
+        }, 30);
+    };
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventDelegateDict) {
         return;
     }
     window.domOnEventDelegateDict = {};
-    timerTimeoutDict = {};
     window.domOnEventDelegateDict.domOnEventDelegate = function (evt) {
-        evt.targetOnEvent = evt.target.closest(
-            "[data-onevent]"
-        );
+        evt.targetOnEvent = evt.target.closest("[data-onevent]");
         if (
             !evt.targetOnEvent
             || evt.targetOnEvent.dataset.onevent === "domOnEventNop"
-            || evt.target.closest(
-                ".disabled, .readonly"
-            )
+            || evt.target.closest(".disabled,.readonly")
         ) {
             return;
         }
-        // rate-limit high-frequency-event
+        // filter evt-change
+        switch (evt.type !== "change" && evt.target.type) {
+        case "checkbox":
+        case "file":
+        case "select-one":
+        case "radio":
+            return;
+        }
+        // filter evt-keyup
         switch (evt.type) {
-        case "keydown":
         case "keyup":
-            // filter non-input keyboard-event
-            if (!evt.target.closest(
-                "input, option, select, textarea"
+            if (!timerTimeout && (
+                evt.target.tagName === "INPUT"
+                || evt.target.tagName === "TEXTAREA"
             )) {
-                return;
+                timerTimeout = debounce();
+                if (evt.target.dataset.valueOld !== evt.target.value) {
+                    evt.target.dataset.valueOld = evt.target.value;
+                    break;
+                }
             }
-            if (timerTimeoutDict[evt.type] !== true) {
-                timerTimeoutDict[evt.type] = timerTimeoutDict[
-                    evt.type
-                ] || setTimeout(function () {
-                    timerTimeoutDict[evt.type] = true;
-                    window.domOnEventDelegateDict.domOnEventDelegate(evt);
-                }, 50);
-                return;
-            }
-            timerTimeoutDict[evt.type] = null;
-            break;
+            return;
         }
         switch (evt.targetOnEvent.tagName) {
         case "BUTTON":
@@ -325,32 +310,20 @@ pre {
             break;
         }
         evt.stopPropagation();
-        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](
-            evt
-        );
+        // handle domOnEventClickTarget
+        if (evt.targetOnEvent.dataset.onevent === "domOnEventClickTarget") {
+            document.querySelector(
+                evt.targetOnEvent.dataset.clickTarget
+            ).click();
+            return;
+        }
+        window.domOnEventDelegateDict[evt.targetOnEvent.dataset.onevent](evt);
     };
-    window.domOnEventDelegateDict.domOnEventResetOutput = function () {
-        document.querySelectorAll(
-            ".onevent-reset-output"
-        ).forEach(function (elem) {
-            switch (elem.tagName) {
-            case "INPUT":
-            case "TEXTAREA":
-                elem.value = "";
-                break;
-            case "PRE":
-                elem.textContent = "";
-                break;
-            default:
-                elem.innerHTML = "";
-            }
-        });
-    };
-    // init event-handling
+    // handle evt
     [
         "change",
         "click",
-        "keydown",
+        "keyup",
         "submit"
     ].forEach(function (eventType) {
         document.addEventListener(
@@ -365,35 +338,32 @@ pre {
 // init domOnEventSelectAllWithinPre
 (function () {
 /*
- * this function will limit select-all within <pre tabIndex="0"> elements
+ * this function will limit select-all within <pre tabIndex="0"> elem
  * https://stackoverflow.com/questions/985272/selecting-text-in-an-element-akin-to-highlighting-with-your-mouse
  */
     "use strict";
-    if (window.domOnEventSelectAllWithinPre) {
+    if (!(
+        typeof window === "object" && window && window.document
+        && typeof document.addEventListener === "function"
+    ) || window.domOnEventSelectAllWithinPre) {
         return;
     }
     window.domOnEventSelectAllWithinPre = function (evt) {
-        var range;
-        var selection;
+        let range;
+        let selection;
         if (
-            evt
-            && evt.key === "a"
-            && (evt.ctrlKey || evt.metaKey)
-            && evt.target.closest(
-                "pre"
-            )
+            evt && (evt.ctrlKey || evt.metaKey) && evt.key === "a"
+            && evt.target.closest("pre")
         ) {
             range = document.createRange();
-            range.selectNodeContents(evt.target.closest(
-                "pre"
-            ));
+            range.selectNodeContents(evt.target.closest("pre"));
             selection = window.getSelection();
             selection.removeAllRanges();
             selection.addRange(range);
             evt.preventDefault();
         }
     };
-    // init event-handling
+    // handle evt
     document.addEventListener(
         "keydown",
         window.domOnEventSelectAllWithinPre
@@ -414,10 +384,10 @@ pre {
 </a>
 
 </h1>
-<h3>this zero-dependency package will provide a collection of high-level functions to to build, test, and deploy webapps</h3>
+<h3>this zero-dependency package will provide high-level functions to to build, test, and deploy webapps</h3>
 
 <a class="button" download href="assets.app.js">download standalone app</a><br>
-<button class="button" data-onevent="testRunBrowser" id="buttonTestRun1">run internal test</button><br>
+<button class="button" data-onevent="testRunBrowser" id="buttonTestRun1">run browser-tests</button><br>
 <div class="uiAnimateSlide" id="htmlTestReport1" style="border-bottom: 0; border-top: 0; margin-bottom: 0; margin-top: 0; max-height: 0; padding-bottom: 0; padding-top: 0;"></div>
 
 
@@ -425,7 +395,7 @@ pre {
 
 <!-- custom-html-start -->
 <label>edit or paste script below to cover and test</label>
-<textarea class="textarea" data-onevent="testRunBrowser" id="inputTextarea1">
+<textarea class="textarea" data-onevent="domOnEventInputChange" id="inputTextarea1">
 // remove comment below to disable jslint
 /*jslint browser, devel*/
 /*global window*/
@@ -454,7 +424,7 @@ pre {
         // test ajax-req for main-page "/"
         window.utility2.ajax(opt, function (err, xhr) {
             try {
-                // validate no err occurred
+                // handle err
                 console.assert(!err, err);
                 // validate "200 ok" status
                 console.assert(xhr.statusCode === 200, xhr.statusCode);
@@ -471,27 +441,86 @@ pre {
     window.utility2.testRunDefault(testCaseDict);
 }());
 </textarea>
-<button class="button" data-onevent="testRunBrowser" id="buttonJslintAutofix1">jslint autofix</button><br>
+<button class="button" data-onevent="domOnEventInputChange" id="buttonJslintAutofix1">jslint autofix</button><br>
 <pre class= "colorError" id="outputJslintPre1" tabindex="0"></pre>
 <label>instrumented-code</label>
-<pre class="readonly textarea" id="outputCode1" tabindex="0"></pre>
+<textarea class="readonly textarea" id="outputTextarea1" readonly tabindex="0"></textarea>
 <label>stderr and stdout</label>
-<pre class="onevent-reset-output readonly textarea" id="outputStdout1" tabindex="0"></pre>
-<div id="htmlTestReport1"></div>
+<textarea class="onevent-reset-output readonly textarea" id="outputStdout1" readonly></textarea>
+<div id="htmlTestReport2"></div>
 <div id="htmlCoverageReport1"></div>
 <script>
 /* jslint utility2:true */
-(function () {
+window.addEventListener("load", function (local) {
 "use strict";
-document.querySelector("#htmlTestReport1").remove();
-window.addEventListener("load", function () {
-    window.utility2.on("utility2.testRunEnd", function () {
-        (document.querySelector(
-            "#htmlCoverageReport1"
-        ) || {}).innerHTML = window.utility2.istanbulCoverageReportCreate();
+local = window.utility2;
+local.querySelectorAll(
+    "#buttonTestRun1, #htmlTestReport1"
+).forEach(function (elem) {
+    elem.style.display = "none";
+});
+local.domOnEventInputChange = function (evt) {
+    switch (evt.type + "." + evt.target.id) {
+    case "click.buttonJslintAutofix1":
+    case "keyup.inputTextarea1":
+        // jslint #inputTextarea1
+        local.jslintAndPrint(local.querySelector(
+            "#inputTextarea1"
+        ).value, "inputTextarea1.js", {
+            autofix: evt.target.id === "buttonJslintAutofix1",
+            conditional: evt.target.id !== "buttonJslintAutofix1"
+        });
+        if (local.jslint.jslintResult.autofix) {
+            local.querySelector(
+                "#inputTextarea1"
+            ).value = local.jslint.jslintResult.code;
+        }
+        local.querySelector(
+            "#outputJslintPre1"
+        ).textContent = local.jslint.jslintResult.errMsg.replace((
+            /\\u001b\\[\\d*m/g
+        ), "").trim();
+        // try to cleanup __coverage__
+        try {
+            delete globalThis.__coverage__["/inputTextarea1.js"];
+        } catch (ignore) {}
+        // try to cover and eval #inputTextarea1
+        try {
+            local.querySelector(
+                "#outputTextarea1"
+            ).value = local.istanbul.instrumentSync(
+                local.querySelector("#inputTextarea1").value,
+                "/inputTextarea1.js"
+            );
+            eval( // jslint ignore:line
+                local.querySelector("#outputTextarea1").value
+            );
+        } catch (errCaught) {
+            console.error(errCaught);
+        }
+        break;
+    }
+};
+// handle evt
+local.on("utility2.testRunEnd", function () {
+    local.querySelector(
+        "#htmlCoverageReport1"
+    ).innerHTML = local.istanbul.coverageReportCreate({
+        coverage: globalThis.__coverage__
     });
 });
-}());
+local.on("utility2.testRunProgressUpdate", function (testReport) {
+    local.querySelector(
+        "#htmlTestReport2"
+    ).innerHTML = local.testReportMerge(testReport, {});
+});
+local.domOnEventInputChange({
+    target: {
+        id: "inputTextarea1"
+    },
+    type: "keyup"
+});
+});
 </script>
 <!-- custom-html-end -->
 
@@ -502,27 +531,6 @@ window.addEventListener("load", function () {
 <script src="assets.utility2.rollup.js"></script>
 <script src="assets.utility2.example.js"></script>
 <script src="assets.utility2.test.js"></script>
-
-<script>
-/* jslint utility2:true */
-(function () {
-"use strict";
-var htmlTestReport1;
-var local;
-htmlTestReport1 = document.querySelector("#htmlTestReport1");
-if (!htmlTestReport1) {
-    return;
-}
-local = window.utility2;
-local.on("utility2.testRunProgressUpdate", function (testReport) {
-    htmlTestReport1.innerHTML = local.testReportMerge(testReport, {});
-});
-local.on("utility2.testRunStart", function (testReport) {
-    local.uiAnimateSlideDown(htmlTestReport1);
-    htmlTestReport1.innerHTML = local.testReportMerge(testReport, {});
-});
-}());
-</script>
 
 
 <div style="text-align: center;">
