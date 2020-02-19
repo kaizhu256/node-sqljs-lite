@@ -1,0 +1,95 @@
+<svg height="750" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="750" fill="#555" width="720"></rect>
+<text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
+<tspan x="10" y="26">2020-02-19 13:21:15 -0600</tspan>
+
+<tspan x="10" y="42">- npm publish 2020.2.12</tspan>
+
+<tspan x="10" y="58">- add function sqljsExec, sqljsTableExport, sqljsTableImport</tspan>
+
+<tspan x="10" y="74">- add file assets.sqljs_lite.wasm</tspan>
+
+<tspan x="10" y="90"></tspan>
+
+<tspan x="10" y="106">2020-02-19 13:18:23 -0600</tspan>
+
+<tspan x="10" y="122">- npm publish 2020.2.12</tspan>
+
+<tspan x="10" y="138">- add function sqljsExec, sqljsTableExport, sqljsTableImport</tspan>
+
+<tspan x="10" y="154">- add file assets.sqljs_lite.wasm</tspan>
+
+<tspan x="10" y="170"></tspan>
+
+<tspan x="10" y="186">2020-02-19 13:04:50 -0600</tspan>
+
+<tspan x="10" y="202">update.build</tspan>
+
+<tspan x="10" y="218"></tspan>
+
+<tspan x="10" y="234">2020-02-19 12:59:09 -0600</tspan>
+
+<tspan x="10" y="250">update.build</tspan>
+
+<tspan x="10" y="266"></tspan>
+
+<tspan x="10" y="282">2020-02-19 12:43:33 -0600</tspan>
+
+<tspan x="10" y="298">update.build</tspan>
+
+<tspan x="10" y="314"></tspan>
+
+<tspan x="10" y="330">2020-02-19 12:04:08 -0600</tspan>
+
+<tspan x="10" y="346">update.build</tspan>
+
+<tspan x="10" y="362"></tspan>
+
+<tspan x="10" y="378">2020-02-19 11:55:36 -0600</tspan>
+
+<tspan x="10" y="394">update.build</tspan>
+
+<tspan x="10" y="410"></tspan>
+
+<tspan x="10" y="426">2020-02-19 11:51:12 -0600</tspan>
+
+<tspan x="10" y="442">update.build</tspan>
+
+<tspan x="10" y="458"></tspan>
+
+<tspan x="10" y="474">2020-02-19 11:50:27 -0600</tspan>
+
+<tspan x="10" y="490">update.build</tspan>
+
+<tspan x="10" y="506"></tspan>
+
+<tspan x="10" y="522">2020-02-19 11:45:11 -0600</tspan>
+
+<tspan x="10" y="538">update.build</tspan>
+
+<tspan x="10" y="554"></tspan>
+
+<tspan x="10" y="570">2020-02-19 11:40:20 -0600</tspan>
+
+<tspan x="10" y="586">update.build</tspan>
+
+<tspan x="10" y="602"></tspan>
+
+<tspan x="10" y="618">2019-09-08 09:36:28 +0000</tspan>
+
+<tspan x="10" y="634">[ci skip] [npm published 2019.9.8]</tspan>
+
+<tspan x="10" y="650"></tspan>
+
+<tspan x="10" y="666">2019-09-08 06:49:42 +0000</tspan>
+
+<tspan x="10" y="682">[npm publishAfterCommitAfterBuild]</tspan>
+
+<tspan x="10" y="698"></tspan>
+
+<tspan x="10" y="714">2014-03-26 02:31:50 +0700</tspan>
+
+<tspan x="10" y="730">add blank README.md</tspan>
+
+</text>
+</svg>
